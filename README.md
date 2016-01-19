@@ -1,8 +1,10 @@
 ﻿# Software de Gestión 
 
 modulos
--
--
--
--
--
+-CONFIGURACION GENERAL
+-INVENTARIO
+- RECURSSOS HUMANOS
+- VENTAS
+- CONTABILIDAD
+- ACTIVO
+- AJUSTES EXTRAS
