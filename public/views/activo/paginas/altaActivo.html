@@ -1,1 +1,169 @@
-<h2>ALTA ACTIVO</h2>
+<div class="container" style="position:absolute">
+<h2> ALTA DE ACTIVO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	<ul class="nav nav-tabs">
+    	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Nuevo</a></li>
+    	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Listar</a></li>
+    	<li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Reporte</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}" class="fondo-blanco">
+      <!-- EMPRESA -->
+      <br />
+        <table>          
+          <tbody>
+          <tr>
+            <td align="right">Fecha * : </td><td><input type="date"></td>
+            <td align="right">Egreso de Producto * : </td><td><input type="input" placeholder="Buscar"></td>
+          </tr>
+          <tr>
+          <td align="right">Nombre * : </td><td><input type="text"></td>
+            <td align="right" >Tipo de Activo :</td>
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right" >Sucursal :</td>
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+            <td align="right" >Comprobante :</td>
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+            <td align="right"> N° : </td><td><input type="text"></td>
+          </tr>
+
+          <tr>
+            <td align="right" >Responsable :</td>            
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+            <td align="right"> Ubicación : </td><td><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"> Detalle : </td><td><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"> Fecha Compra : </td><td><input type="text"></td>
+            <td>Caja<input type="radio" checked>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Cuenta Contable<input type="radio" >
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right"> Cantidad : </td><td><input type="text"></td>
+            <td align="right" >Caja / Banco :</td>            
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td align="right"> Precio Compra * : </td><td><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"> Actualización A.F.: </td><td><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"> Depreciación A.F.:  </td><td><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"> Valor Neto: </td><td><input type="text"></td>
+          </tr>
+          </tbody>          
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}" class="fondo-blanco">
+      <!-- LISTAR -->
+      <br />
+      <div class="col-md-12">
+      	<select name="" id="">
+          <option value="numero" selected="selected">N°</option>
+          <option value="nombre">Nombre</option>
+        </select>				
+       	<input type="text" placeholder="Buscar">
+      </div>
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
+          <thead>
+          <th></th>
+          <th></th>
+          <th>N°</th>
+          <th>Nombre </th>
+          <th>Sub Grupo</th>
+          <th>U.M.</th>
+          <th>U.A.</th>
+          <th>Conv.</th>
+          <th>Stock Mínimo.</th>
+          <th>Costo</th>
+          </thead>
+          <tbody>
+            <!-- ng.repeat -->
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}" class="fondo-blanco">
+      <br />
+		<table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+          	<tr>
+	            <td align="right">Desde :</td><td><input type="date"/></td>  
+	         </tr>
+	         <tr>
+	          <td align="right" >Hasta :</td><td><input type="date"/>
+	          </td>
+	         </tr>
+	         <tr>
+	          <td align="right" >Almacen :</td>
+	          <td>
+	            <select name="rubro" id="rubro">
+	              <option value="sucursal" selected="selected">--Seleccione--</option>
+	              <option value="Chuquisaca">Chuquisaca</option>
+	              <option value="Cochabamba">Cochabamba</option>
+	            </select>
+	          </td>
+	         </tr>
+	        <tr>
+	          <td align="right" >Grupo :</td>
+	          <td>
+	            <select name="rubro" id="rubro">
+	              <option value="sucursal" selected="selected">--Seleccione--</option>
+	              <option value="Chuquisaca">Chuquisaca</option>
+	              <option value="Cochabamba">Cochabamba</option>
+	            </select>
+	          </td>
+	         </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-success">GENERAR REPORTE</button>
+        <br /><br />
+        <button class="btn btn-primary">STOCK DE PRODUCTOS</button>
+      </div>
+</div>
