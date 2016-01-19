@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Software de Gestión Lunascrid</title>
+    <title>Software de Gestión</title>
     <!-- tags -->
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="Ronald Luna, Ronald Luna Ramos,ronald luna,software de gestion ideal para empresas ">
