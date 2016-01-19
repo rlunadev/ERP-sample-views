@@ -85,7 +85,7 @@
           <p class="pull-right" class="blanco" style="color:white">
             <b> Celular:</b> 74002070 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <b>Ubicación:</b> El Alto - Bolivia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a target="_blank" href="http://www.lunascrid.com">LUNASCRID 2016</a>
+            <a target="_blank" href="http://www.lunascrid.com"> 2016</a>
           </p>
         </div>
       </div>
