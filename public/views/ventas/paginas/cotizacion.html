@@ -1,1 +1,215 @@
-<h2>COTIZACIÓN</h2>
+<div class="container" style="position:absolute">
+<h2> COTIZACIÓN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	<ul class="nav nav-tabs">
+    	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Nuevo</a></li>
+    	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Listar</a></li>
+    	<li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Reporte</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}" class="fondo-blanco">
+      <!-- EMPRESA -->
+      <br />
+          <table>          
+            <tbody>
+            <tr>
+              <td align="right">Fecha * : </td><td><input type="date"></td>
+              <td align="right">Comprobante :</td>
+              <td>
+                <select name="rubro" id="rubro">
+                    <option value="sucursal" selected="selected">--Seleccione--</option>
+                    <option value="Chuquisaca">Chuquisaca</option>
+                    <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+              <td align="right">Moneda :</td>
+              <td>
+                <select name="rubro" id="rubro">
+                    <option value="sucursal" selected="selected">--Seleccione--</option>
+                    <option value="Chuquisaca">Chuquisaca</option>
+                    <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+            <td align="right">Empresa * : </td><td><input type="text"></td>
+              <td align="right" >Sucursal :</td>
+              <td>
+                <select name="rubro" id="rubro">
+                  <option value="sucursal" selected="selected">--Seleccione--</option>
+                  <option value="Chuquisaca">Chuquisaca</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+               <td align="right" >Precio :</td>
+              <td>
+                <select name="rubro" id="rubro">
+                  <option value="sucursal" selected="selected">--Seleccione--</option>
+                  <option value="Chuquisaca">Chuquisaca</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="right">Contacto * : </td><td><input type="text"></td>
+              <td align="right" > Propuesta Valida :</td>
+              <td>
+                <select name="rubro" id="rubro">
+                  <option value="sucursal" selected="selected">--Seleccione--</option>
+                  <option value="Chuquisaca">Chuquisaca</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+              <td align="right">Proyecto * : </td><td><input type="text"></td>
+            </tr>
+
+            <tr>
+              <td align="right" >Presentación :</td>            
+              <td>
+                <select name="rubro" id="rubro">
+                  <option value="sucursal" selected="selected">--Seleccione--</option>
+                  <option value="Chuquisaca">Chuquisaca</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+              <td align="right" >Tipo :</td>
+              <td>
+                <select name="rubro" id="rubro">
+                  <option value="sucursal" selected="selected">--Seleccione--</option>
+                  <option value="Chuquisaca">Chuquisaca</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                </select>
+              </td>
+              <td align="right">Código * : </td><td><input type="text"></td>
+            </tr>
+            </tbody>          
+          </table>
+          <br />
+          <div class="row">
+            <div class="col-md-11" style="background:#999;border-radius:5px;color:white; padding:4px;left:20px">
+              <div class="col-md-8">
+                <td >Producto : <input type="text" placeholder="Buscar" /></td>
+              </div>
+              <div class="col-md-3">
+                T.C.: 6.96 <button class="btn btn-default">Factura</button>
+              </div>
+            </div>
+            <div class="espacio"></div>
+            <table width="97%">
+              <thead style="background:#575;border-radius:5px;color:white;">
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>P./Unit.</th>
+                <th>Factor</th>
+                <th>Total</th>
+                <th></th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  Glosa
+                  <textarea></textarea>
+                </div>
+                <div class="col-md-6">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td align="right">Subtotal</td><td><input type="text" value="0"></td>
+                      </tr>
+                      <tr>
+                        <td>Descuento : <input type="text" value="0">%</td>
+                        <td><input type="text" value="0"></td>
+                      </tr>  
+                      <tr>
+                        <td>Recargo : <input type="text" value="0">%</td>
+                        <td><input type="text" value="0"></td>
+                      </tr>  
+                      <tr>
+                        <td align="right">TOTAL Bs.:</td><td> <input type="text" value="0"></td>
+                      </tr>  
+                      <tr>
+                        <td align="right">TOTAL $us.: </td><td><input type="text" value="0"></td>
+                      </tr>  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}" class="fondo-blanco">
+      <!-- LISTAR -->
+      <br />
+      <div class="col-md-12">
+      	<select name="" id="">
+          <option value="numero" selected="selected">N°</option>
+          <option value="nombre">Nombre</option>
+        </select>				
+       	<input type="text" placeholder="Buscar">
+      </div>
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
+          <thead>
+          <th></th>
+          <th></th>
+          <th>N°</th>
+          <th>Nombre </th>
+          <th>Sub Grupo</th>
+          <th>U.M.</th>
+          <th>U.A.</th>
+          <th>Conv.</th>
+          <th>Stock Mínimo.</th>
+          <th>Costo</th>
+          </thead>
+          <tbody>
+            <!-- ng.repeat -->
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}" class="fondo-blanco">
+      <br />
+		<table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+          	<tr>
+	            <td align="right">Desde :</td><td><input type="date"/></td>  
+	         </tr>
+	         <tr>
+	          <td align="right" >Hasta :</td><td><input type="date"/>
+	          </td>
+	         </tr>
+	         <tr>
+	          <td align="right" >Almacen :</td>
+	          <td>
+	            <select name="rubro" id="rubro">
+	              <option value="sucursal" selected="selected">--Seleccione--</option>
+	              <option value="Chuquisaca">Chuquisaca</option>
+	              <option value="Cochabamba">Cochabamba</option>
+	            </select>
+	          </td>
+	         </tr>
+	        <tr>
+	          <td align="right" >Grupo :</td>
+	          <td>
+	            <select name="rubro" id="rubro">
+	              <option value="sucursal" selected="selected">--Seleccione--</option>
+	              <option value="Chuquisaca">Chuquisaca</option>
+	              <option value="Cochabamba">Cochabamba</option>
+	            </select>
+	          </td>
+	         </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-success">GENERAR REPORTE</button>
+        <br /><br />
+        <button class="btn btn-primary">STOCK DE PRODUCTOS</button>
+      </div>
+</div>
