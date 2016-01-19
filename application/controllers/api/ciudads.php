@@ -28,35 +28,30 @@ class ciudads extends REST_Controller
     function ciudad_get()
     {
         $ciudad = $this->ciudad->getAll()->result();
-        if($ciudad)
-        {
+        if ($ciudad) {
             $this->response($ciudad, 200);
-        }
-        else
-        {
-            $this->response(array('error' => 'no se encontro el ciudad'), 404);
+        } else {
+        		$this->response(array('error' => 'no se encontro el ciudad'), 404);
         }
     }
 
     function ciudad_put()
-  {
-    try 
-    {
-       $id_ciudad=$this->get('id_ciudad');
-       $input_values = $this->put();
-       $item = $this->ciudad->modifica($id_ciudad, $input_values);
-       $this->response($item, 200);
-       //$this->response(array('id'=>$id_ciudad), 200);
-    }
-    catch (Exception $e) 
-    {
-     $this->response(array("error" => $e->getMessage()), 404);
-    }
-  }
+	  {
+	    try {
+	       $id_ciudad = $this->get('id_ciudad');
+	       $input_values = $this->put();
+	       $item = $this->ciudad->modifica($id_ciudad, $input_values);
+	       $this->response($item, 200);
+	    } catch (Exception $e)
+	    {
+	     $this->response(array("error" => $e->getMessage()), 404);
+	    }
+	  }
+
     function ciudad_post()
     {
-        $input=(array)json_decode(file_get_contents("php://input"));
-        $product=$this->ciudad->save($input);
+        $input = (array) json_decode(file_get_contents("php://input"));
+        $product = $this->ciudad->save($input);
         $this->response($product, 200);
     }
 
@@ -64,10 +59,11 @@ class ciudads extends REST_Controller
     {
         $id = $this->get('id_ciudad');
         $this->ciudad->delete($id);
-        $this->response(array('param'=>$id), 200);
+        $this->response(array('param' => $id), 200);
     }
-	function send_post()
-	{
-	var_dump($this->request->body);
-	}	
+
+		function send_post()
+		{
+				var_dump($this->request->body);
+		}
 }
