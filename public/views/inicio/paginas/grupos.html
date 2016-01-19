@@ -1,0 +1,391 @@
+<div class="container" style="position:absolute">
+<h2>GRUPOS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	<ul class="nav nav-tabs">
+    	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Administración</a></li>
+    	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Inventario</a></li>
+      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Recursos Humanos</a></li>
+      <li ng-class="{'active' : activeTab == 4}"><a href="" ng-click="setActiveTab(4)">Activos Fijos</a></li>
+      <li ng-class="{'active' : activeTab == 5}"><a href="" ng-click="setActiveTab(5)">Ventas</a></li>
+      <li ng-class="{'active' : activeTab == 6}"><a href="" ng-click="setActiveTab(6)">Contabilidad</a></li>
+      <li ng-class="{'active' : activeTab == 7}"><a href="" ng-click="setActiveTab(7)">Agenda</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}">
+      <!-- Administración  -->
+      <br />
+        <h4>Marcar Todos  <input type="checkbox"></h4>
+        <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Empresa</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Sucursal</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Usuarios del Sistema</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Grupo de Usuarios</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>tipo Cambio - UFV</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Configuración Contabilidad</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Configuración Ventas</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Configuración RRHH</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Configuración Activos</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Historial</td><td>x</td><td>x</td><td>x</td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Respaldo del Sistema</td><td>x</td><td>x</td><td>x</td>
+            <td>x</td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Registro del Sistema</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+            <tr>
+            <td>Ayuda</td><td><input type="checkbox"></td><td>x</td><td>x</td><td>x</td><td>x</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}">
+      <!-- Inventario -->
+      <br />
+       <h4>Marcar Todos  <input type="checkbox"></h4>
+       <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Almacén</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Solicitud de Productos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Ingresar Producto</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Egreso de Productos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Traspaso de Productos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Tipos de Productos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Tipos de Servicios</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Proveedores</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"><td>x</td>
+            </tr>
+            <tr>
+            <td>Grupo y Subgrupo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Tipo Combinación</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+            <tr>
+            <td>Combinación</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Control Inventario</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td>x</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}">
+      <!-- Recursos Humanos -->
+      <br />
+       <h4>Marcar Todos  <input type="checkbox"></h4>
+        <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Anticipo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Anticipo Masivo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Planilla de Bonos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Planilla de Bonos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Planilla de Sueldos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Planilla de Aguinaldos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Liquidaciox</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Vacaciones</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Baja Médica</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Faltas</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Trabajadores</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Departamento</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Cargo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Parámetros de Sueldo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Parámetros de Vacaciones</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Parámetros de Faltas</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Historial</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Monitoreo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Compra de Dotación</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Dotación al Personal</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Baja de Dotación</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <td>Descuentos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+          </tbody>
+        </table>
+      </div>
+
+      <div ng-class="{'tab-pane active': activeTab === 4, 'tab-pane' : activeTab !== 4}">
+      <!-- ACTIVOS -->
+      <br />
+       <h4>Marcar Todos  <input type="checkbox"></h4>
+        <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Alta de Activo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Baja de Activo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Tipos de Activos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Traspaso Activo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 5, 'tab-pane' : activeTab !== 5}">
+      <!--Ventas  -->
+      <br />
+       <h4>Marcar Todos  <input type="checkbox"></h4>
+       <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Cotización</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Pre Venta</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Venta de Producto</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Venta de Servicios</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Venta Masiva</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Facturación</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Cuenta por Pagar</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Cuenta por Cobrar</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Clientes</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Almacén</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Centro de Negocios</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Proyectos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Ruta de Vista</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Ruta de Entrega</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Ruta de Cobranza</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Restaurante</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 6, 'tab-pane' : activeTab !== 6}">
+      <!-- Contabilidad -->
+      <br />
+       <h4>Marcar Todos  <input type="checkbox"></h4>
+        <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Ingreso de Dinero</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Egreso de Dinero</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Traspaso de Dinero</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Compras</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Ventas</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Libro Diario</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Impuesto Mensual</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Plan de Cuenta</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Balance General</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Estado de Resultados</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Reporte por Cobrar</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Reporte por Pagar</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 7, 'tab-pane' : activeTab !== 7}">
+      <!-- Agenda -->
+      <br />
+       <h4>Marcar Todos  <input type="checkbox"></h4>
+        <table width="100%" >
+          <thead>
+            <th>Provilegios de Grupo</th>
+            <th>Nuevo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            <th>Listar</th>
+            <th>Reporte</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Recibo de Ingreso</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Recibo de Egreso</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Recibo de Traspaso</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Informe de Gastos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Informe de Trabajo</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Proyecto</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Bloc de Notas</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Actas de Reunión</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Memorándum</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Carta</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Email</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+            <tr>
+            <td>Agenda</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+</div>

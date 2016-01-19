@@ -1,0 +1,188 @@
+<b><h4 class="center">Nuevo Evento</h4></b>
+  <form class="form-horizontal" ng-submit="saveEvento(item)">
+          <div class="form-group" >
+            <label for="titulo" class="col-sm-2 control-label">Titulo</label>
+            <div class="col-sm-4">
+              <input type="text" ng-model="item.titulo" class="form-control"  placeholder="Titulo del evento"  />
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="estado" class="col-sm-2 control-label">Estado</label>
+            <div class="col-sm-4">
+              <input type="number" ng-model="item.estado" class="form-control"  placeholder="estado" >
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="fecha" class="col-sm-2 control-label">Fecha</label>
+            <div class="col-sm-4">
+                
+              <div id='datetimepicker1' class="input-append date">
+                <span class="add-on">
+                <input data-format ="yyyy-MM-dd" type="text" id="campo"/>
+                  <i data-time-icon="icon-time" date-date-icon="icon-calendar">x</i>
+                </span>
+              </div>
+              
+            </div>
+          </div>
+          <!-- contenido -->
+          <div class="form-group" >
+            <label for="cotnenido" class="col-sm-2 control-label">Contenido</label>
+            <div class="col-sm-4">
+              <textarea ng-model="item.contenido" class="form-control"  placeholder="Contenido" >
+              </textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="fecha" class="col-sm-2 control-label">Imagen</label>
+              <div class="col-sm-4">
+                <!-- <input type="text" ng-model="item.imagen" /><br> -->
+                <input type="file" ng-model="item.imagen" name="file" uploader-model="file" required/> <br>  
+                <img src="{{item.imagen}}" width="100" width="100" >
+              </div>
+          </div>
+
+          <div class="form-group" >
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary" >Registrar</button>
+            </div>
+          </div>
+      </form>
+
+      <!-- lista -->
+      <div class="table-responsive" style="max-width: 85%;">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+        <thead>
+          <tr >
+          <th class="text-center">
+              Id
+            </th>
+            <th class="text-center">
+              Estado
+            </th>
+            <th class="text-center">
+              Fecha
+            </th>
+            <th class="text-center">
+              Titulo
+            </th>
+            <th class="text-center">
+              Contenido
+            </th>
+            <th class="text-center">
+              Imagen
+            </th>
+            <th class="text-center">
+              Gestión
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id='addr0'ng-repeat="evento in eventos">
+            <td>
+            {{evento.id_eventos}}
+            </td>
+            <td>
+            {{evento.estado}}
+            </td>
+            <td>
+            {{evento.fecha}}
+            </td>
+            <td>
+            {{evento.titulo}}
+            </td>
+            <td>
+            {{evento.contenido}}
+            </td>
+            <!-- <td> 
+             {{evento.imagen}}
+            </td>-->
+            <td>
+             <img src="{{evento.imagen}}" height="100" width="100" onclick="uno();" id="imagen">
+            </td>
+            <script type="text/javascript">
+            function uno()
+            {
+              alert("imagen");
+            }
+            </script>
+            <td>
+             <button class="btn btn-danger" ng-click="deleteEvento(evento, $index)">ELIMINAR</button>
+             <button class="btn btn-warning" ng-click="evento_modal(evento)" data-toggle="modal" data-target="#myModal">EDITAR</button>
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- MODAL -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content"ng-model="evento">
+    <form class="form-horizontal" ng-submit="evento_modifica(evento,evento.id_eventos)">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar</h4>
+      </div>
+    <div class="modal-body">
+      
+      <div class="form-group" >        
+        <label class="col-sm-2 control-label"> Id Evento</label>
+          <div class="col-sm-4">
+            <input type="text" value="{{evento.id_eventos}}"ng-model="evento.id_eventos"class="form-control"disabled="true"/>
+          </div>
+      </div>
+
+      <div class="form-group" >        
+        <label class=" control-label"> Estado</label>
+          <div class="">
+            <input type="text"value="{{evento.estado}}"ng-model="evento.estado"class="form-control"/>
+          </div>
+      </div>
+
+      <div class="form-group" >        
+        <label class=" control-label"> Titulo</label>
+          <div class="">
+            <input type="text"value="{{evento.titulo}}"ng-model="evento.titulo"class="form-control"/>
+          </div>
+      </div>
+      
+      <div class="form-group" >        
+        <label class="control-label"> Fecha</label>
+          <div class="">
+            <input type="date" value="{{evento.fecha}}" ng-model="evento.fecha" class="form-control"/>
+          </div>
+      </div>
+
+      <div class="form-group" >
+        <label for="fecha" class=" control-label">Contenido</label>
+          <div class="">
+            <textarea  value="{{evento.contenido}}" ng-model="evento.contenido" class="form-control">
+            </textarea>
+          </div>
+      </div>
+    
+      <div class="form-group" >
+        <label for="imagen" class=" control-label">Imagen</label>
+          <div class="">
+          <input type="text" value="{{item.imagen}}" ng-model="item.imagen"/> <br>  
+            <input type="file" ng-model="item.imagen" name="file" uploader-model="file" /> <br>  
+            <img src="{{evento.imagen}}" height="150" width="150">
+          </div>
+      </div>
+      
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-success">Guardar Cambios</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+    </div>
+    </form>
+    </div>
+  </div>
+</div>

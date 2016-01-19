@@ -1,0 +1,30 @@
+PROYECTO Tecnologia
+Rai
+Paola
+Sergio Cusi
+Juanpi
+jhon
+abi
+
+Diseño  --> 
+
+- NOTICIAS                 --- PAOLA
+- MULTIMEDIA 		   --- PAOLA
+- EVENTOS                  --- PAOLA
+- ACTIVIDADES              --- PAOLA
+
+- COMUNICADOS 		   --- RONALD
+- CONVOCATORIAS	 	   --- RONALD
+- ALBUM o GALERIA DE FOTOS --- RONALD
+- CONTACTOS                --- RONALD SEO
+- INDEX			   --- RONALD
+
+- BANNERS		   --- SERGIO
+- REDES SOCIALES           --- SERGIO
+- LOGIN                    --- SERGIO
+- SERVICIOS		   --- SERGIO
+- QUIENES SOMOS            --- SERGIO
+
+
+
+

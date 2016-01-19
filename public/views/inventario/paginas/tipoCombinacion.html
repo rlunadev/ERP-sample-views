@@ -1,0 +1,52 @@
+<div class="container" style="position:absolute">
+<h2> TIPO DE COMBINACIÓN   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	<ul class="nav nav-tabs">
+  	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Nuevo</a></li>
+  	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Listar</a></li>
+  </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}">
+      <!-- EMPRESA -->
+      <br />
+          <table>
+            <tbody>
+              <tr>
+                <td align="right">Nombre * : </td><td><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="right">Descripción : </td>
+                <td>
+                  <textarea></textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}">
+      <!-- LISTAR -->
+      <br />
+      <div class="col-md-12">
+      	<select name="" id="">
+          <option value="numero" selected="selected">N°</option>
+          <option value="nombre">Nombre</option>
+        </select>				
+       	<input type="text" placeholder="Buscar">
+      </div>
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
+          <thead>
+          <th></th>
+          <th></th>
+          <th>N°</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+</div>

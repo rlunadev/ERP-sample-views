@@ -1,0 +1,55 @@
+<div ng-model="tc">
+<div class="container" style="position:absolute" ng-repeat="tc in tcs">
+<h2>PARAMETROS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary" ng-click="tc_modifica(tc,tc.id_tc)">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	<ul class="nav nav-tabs">
+    	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Tipo de Cambio - UFV</a></li>
+    	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Configuración Sistema</a></li>
+      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Configuración Precios</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}">
+      <!-- EMPRESA -->
+      <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          <th></th>
+          <th>T.C. REAL</th>
+          <th>DESCUENTO</th>
+          <th>T.C. SISTEMA</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right"><label type="text">Dólar Venta * : </label></td><td><input type="text" class="" value="tc.dolar_venta_real" ng-model="tc.dolar_venta_real" required/> </td>
+              <td> <input type="text" class="" value="tc.dolar_venta_descuento" ng-model="tc.dolar_venta_descuento"  required/> </td>
+              <td> <input type="text" class="" value="tc.dolar_venta_sistema" ng-model="tc.dolar_venta_sistema" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label type="text">Dólar Compra * : </label></td><td><input type="text" class=""  value="tc.dolar_compra_real" ng-model="tc.dolar_compra_real" required/> </td>
+              <td> <input type="text" class="" value="tc.dolar_compra_descuento" ng-model="tc.dolar_compra_descuento"  required/> </td>
+              <td> <input type="text" class="" value="tc.dolar_compra_sistema" ng-model="tc.dolar_compra_sistema"  required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label type="text">U.F.V. * : </label></td><td><input type="text" class=""  value="tc.ufv" ng-model="tc.ufv"required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label type="text">Fecha * : </label></td><td><input type="text" class=""  value="tc.fecha" ng-model="tc.fecha"required/> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}">
+      <!--  -->
+      <br />
+      </div>
+      <br />
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}">
+      <!--  -->
+      <br />
+      </div>
+      <br />
+    </div>
+</div>

@@ -1,0 +1,173 @@
+<div class="container" style="position:absolute"  ng-repeat="parametro in parametros | limitTo: 1">
+  <div ng-model="parametro">
+    <!-- <form class="form-signin">  -->
+    <h2>EMPRESA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+      <tbody>
+        <tr>
+          <td colspan="7" align="center"></td>
+        </tr>
+        <tr>
+          <td colspan="6"></td>
+          <td align="center"></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Nombre Comercial * :</label></td><td><input type="text" value="{{parametro.nombre_comercial}}" ng-model="parametro.nombre_comercial" required autofocus /> </td>
+          <td align="right"><label class="text">Rubro :</label> </td>
+          <td>
+            <select ng-model="parametro.rubro" value="{{parametro.rubro}}" required>
+                <option ng-repeat="rubro in rubros"value="{{rubro.id_rubro}}"  title="" ng-selected="rubro.id_rubro==parametro.rubro">{{rubro.descripcion}}</option>
+            </select>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Nombre Nit * :</label></td><td> <input type="text" value="{{parametro.nombre_nit}}" ng-model="parametro.nombre_nit" required/> </td>
+          <td align="right"><label class="text">Nit * : </label></td><td><input type="text" class="" value="{{parametro.nit}}" ng-model="parametro.nit" required/> </td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="espacio"></div>
+    <!-- tap panel -->
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Empresa</a></li>
+      <li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Datos Legales</a></li>
+      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Datos de portada</a></li>
+      <li ng-class="{'active' : activeTab == 4}"><a href="" ng-click="setActiveTab(4)">Actividad Económica</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}" class="fondo-blanco">
+        <!-- EMPRESA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right"><label class="text">Representante/Propetario * :</label></td><td><input type="text" class=""value="{{parametro.representante_propietario}}" ng-model="parametro.representante_propietario" required/> </td>
+
+              <td align="right"><label class="text">Copia de correo(s) :</label></td><td> <input type="text" class="" value="{{parametro.copia_correo}}" ng-model="parametro.copia_correo"/> </td>
+              <!-- value="{{parametro.copia_correo}}"required -->
+            </tr>
+            <tr>
+              <td align="right"><label class="text">C.I. Propietario :</label> </td><td> <input type="text" class="" value="{{parametro.ci_propietario}}"ng-model="parametro.ci_propietario" required/> </td>
+              <td align="right"><label class="text">Logotipo :</label> </td><td><input type="text" value="{{parametro.logotipo}}" ng-model="parametro.logotipo"/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text"><label class="text">Zona Horaria :</label> 
+              </td>
+              <td>
+                <select name="rubro" id="rubro">
+                  <option value="Bolivia" selected="selected">Bolivia</option>                
+                </select>
+              </td>
+              <td align="right"><label class="text">Ciudad :</label> 
+              </td>
+              <td>
+                <select ng-model="parametro.ciudad" value="{{parametro.ciudad}}" required>
+                <option ng-repeat="ciudad in ciudads"value="{{ciudad.id_ciudad}}"  title="" ng-selected="ciudad.id_ciudad==parametro.ciudad">{{ciudad.ciudad}}</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text" >Sitio Web (Url) :</label> </td><td> <input type="text" class="" value="{{parametro.sitio_web}}" ng-model="parametro.sitio_web" required/> </td>
+              <td align="right"><label class="text" >Fecha Vencimiento :</label> </td><td><input type="date" class="input-group date" ng-model="parametro.fecha_vencimiento" required/> </td>
+              <td >
+                   <input type="date" name="fecha">
+              </td>              
+
+            </tr>
+            <tr>
+              <td align="right"><label class="text" >Observaciones : </label></td>
+              <td>
+                <textarea ng-model="parametro.observaciones">{{parametro.observaciones}}
+                </textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}" class="fondo-blanco">
+        <!-- DATOS LEGALES -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right"><label class="text" >N° de Fundempresa * :</label></td><td><input type="text" class="" value="{{parametro.n_fundempresa}}" ng-model="parametro.n_fundempresa" required/> </td>
+              <td align="right"><label class="number" >N° de Infocal :</label></td><td> <input type="text" class="" value="{{parametro.n_infocal}}" ng-model="parametro.n_infocal" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text" >N° de Licencia de Funcionamiento : </label></td><td><input type="text" class="" value="{{parametro.n_licencia_funcionamiento}}" ng-model="parametro.n_licencia_funcionamiento" required/> </td>
+              <td align="right"><label class="text" >N° de R.E.X.:</label></td><td> <input type="text" class="" value="{{parametro.n_rex}}" ng-model="parametro.n_rex" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text" >N° de Seguro Médico * :</label></td><td><input type="text" class="" value="{{parametro.n_seguro_medico}}" ng-model="parametro.n_seguro_medico" required/> </td>
+              <td align="right"><label class="text" >N° de Empleador :</label></td><td> <input type="text" class="" value="{{parametro.n_empleador}}" ng-model="parametro.n_empleador" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text" >N° de Afiliado * :</label></td><td><input type="text" class="" value="{{parametro.n_afiliado}}" ng-model="parametro.n_afiliado" required/> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}" class="fondo-blanco">
+        <!-- DATOS DE PORTADA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right"><label class="text">Teléfono* :</label></td><td><input type="text" class=""  value="{{parametro.telefono}}" ng-model="parametro.telefono" required/> </td>
+              <td align="right"><label class="text">Correo :</label></td><td> <input type="text" class=""  value="{{parametro.email}}" ng-model="parametro.email" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text">N° Dirección :</label> </td><td><input type="text" class=""  value="{{parametro.n_direccion}}" ng-model="parametro.n_direccion"required/> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 4, 'tab-pane' : activeTab !== 4}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <form  >
+            <tbody>
+              <tr>
+                <td align="right"><label class="text">Actividad * :</label></td>
+                <td><input type="text" class="" ng-model="item.descripcion" required/> 
+                  <button type="submit" class="btn-success" ng-click="saveactividadEconomica(item)"> Agregar</button> </td>
+                </tr>
+              </tbody>
+            </form>
+          </table>
+          <table width="100%">
+            <thead>
+              <th>Actividad</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="actividadEconomica in actividadEconomicas">
+                <td>{{actividadEconomica.descripcion}}</td>
+                <th>
+                  <button class="btn btn-danger" ng-click="deleteactividadEconomica(actividadEconomica,$index)">
+                    x
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

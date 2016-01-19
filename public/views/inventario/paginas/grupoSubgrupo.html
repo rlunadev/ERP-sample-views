@@ -1,0 +1,82 @@
+<div class="container" style="position:absolute">
+<h2> GRUPO Y SUBGRUPO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	  <ul class="nav nav-tabs">
+    	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Nuevo</a></li>
+    	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Listar</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}">
+      <!-- EMPRESA -->
+        <br />
+          <center>Nombre Grupo * : <input type="text"></center>
+          <br />
+          <div class="row">
+            <div class="col-md-12" style="background:#999;border-radius:5px;color:white; padding:4px;">
+              <div class="col-md-9">
+               Nombre SubGrupo : <input type="text" placeholder="Buscar" />
+               Descripción : <input type="text" placeholder="Buscar" />
+              </div>
+              <div class="col-md-3">
+                T.C.: 6.96
+                <button class="btn btn-default">Registrar</button> 
+              </div>
+            </div>
+            <div class="espacio"></div>
+            <table width="100%">
+              <thead style="background:#575;border-radius:5px;color:white;">
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>P./Unit.</th>
+                <th>Total</th>
+                <th></th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="col-md-9">
+                  Glosa:<BR /> <textarea></textarea>
+                </div>
+                <div class="col-md-3">
+                  TOTAL Bs.: <input type="number">
+                  <br />
+                  TOTAL $us.: <input type="number">
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}">
+      <!-- LISTAR -->
+      <br />
+      <div class="col-md-12">
+      	<select name="" id="">
+          <option value="numero" selected="selected">N°</option>
+          <option value="nombre">Nombre</option>
+        </select>				
+       	<input type="text" placeholder="Buscar">
+      </div>
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
+          <thead>
+          <th></th>
+          <th></th>
+          <th>N°</th>
+          <th>Nombre </th>
+          <th>Sub Grupo</th>
+          <th>U.M.</th>
+          <th>U.A.</th>
+          <th>Conv.</th>
+          <th>Stock Mínimo.</th>
+          <th>Costo</th>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+</div>

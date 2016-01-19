@@ -1,0 +1,793 @@
+<div class="container" style="position:absolute">
+<div ng-model="plandecuenta">
+<div ng-model="ingresoproducto">
+<h2>CONFIGURACIÓN CONTABLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="btn btn-primary">Guardar</button>
+  <button class="btn btn-danger">Cancelar</button>
+  </h2>
+
+  <ul class="nav nav-tabs">
+      <li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Inventario</a></li>
+      <li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Contabilidad</a></li>
+      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Ventas</a></li>
+      <li ng-class="{'active' : activeTab == 4}"><a href="" ng-click="setActiveTab(4)">RRHH</a></li>
+      <li ng-class="{'active' : activeTab == 5}"><a href="" ng-click="setActiveTab(5)">ACTIVOS</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}">
+      <!-- Inventario -->
+      <br />
+        <ul class="nav nav-tabs">
+          <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Ingreso Producto</a></li>
+          <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Egreso Producto</a></li>
+          <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Proveedor</a></li>
+        </ul>
+      <div class="tab-content">
+        <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}">
+        <!-- ingreso producto -->
+        <form>
+         <center> Descripción <input type="text" ng-model="item.descripcion"> <button class="btn btn-primary" ng-click="saveingresoproducto(item)">Agregar</button> </center>
+         
+         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <thead>
+            <th align="right"></th>
+            <th align="right">Descripción</th>
+            <th align="right">Cuenta</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ingresoproducto in ingresoproductos">
+              <td><button ng-click=""><span class="glyphicon glyphicon-trash"></span></button></td>
+              <td>{{ingresoproducto.descripcion}}</td>
+              <td>
+                <select ng-model="ingresoproducto.id_plandecuenta" value="{{ingresoproducto.id_plandecuenta}}" required>
+                <option ng-repeat="plandecuenta in plandecuentas" value="{{plandecuenta.id_plandecuenta}}"  title="" ng-selected="plandecuenta.id_plandecuenta==ingresoproducto.id_plandecuenta">{{plandecuenta.codigo}}{{plandecuenta.cuenta}}</option>
+                </select>
+              </td>
+            </tr>
+              <!-- cuentas 2 -->
+            </tbody>
+            </table>
+              <div class="espacio"></div>
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+          </form>
+        </div>
+        <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}">
+        <!-- Egreso Producto -->
+        <br />
+        <br />
+         <center> Descripción <input type="text"> <button class="btn btn-primary">Agregar</button> </center>
+         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <thead>
+            <th align="right"></th>
+            <th align="right">Descripción</th>
+            <th align="right">Cuenta</th>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td align="right"> <span class="glyphicon glyphicon-trash">  </span> dddd </td>
+                
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <!-- cuentas 2 -->
+            </tbody>
+            </table>
+              <div class="espacio"></div>
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}">
+        <!-- PROVEEDORES -->
+        <br />
+              <div class="espacio"></div>
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Anticipo a Proveedor (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">(Cuentas por cobrar)</td>
+              </tr>
+              <tr>
+                <td align="right">  Proveedor P/Pagar (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">(Cuentas por pagar/Ingreso de producto)</td>
+              </tr>
+              <tr>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}">
+      <!-- contabilidad  -->
+      <br />
+      <ul class="nav nav-tabs">
+          <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Ingreso Dinero</a></li>
+          <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Egreso Dinero</a></li>
+        </ul>
+      <div class="tab-content">
+        <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}">
+        <!-- ingreso dinero -->
+        <br />
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}">
+        <!-- Egreso dinero -->
+        <br />
+         <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+      <!-- fin contabilidad  -->
+      </div>
+    </div>
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}">
+      <!-- VEntas -->
+      <br />
+      <ul class="nav nav-tabs">
+          <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Venta</a></li>
+          <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Cliente</a></li>
+          <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Cuenta por Cobrar</a></li>
+          <li ng-class="{'active' : SubactiveTab == 4}"><a href="" ng-click="setSubActiveTab(4)">Cuenta por Pagar</a></li>
+          <li ng-class="{'active' : SubactiveTab == 5}"><a href="" ng-click="setSubActiveTab(5)">Cuenta por PagarAutomatico</a></li>
+        </ul>
+      <div class="tab-content">
+        <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}">
+        <!-- venta -->
+        <br />
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> I.T. Gastos (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <tr>
+                <td align="right">  I.T. PASIVO(H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <tr>
+                <td align="right">  Débito Fiscal I.V.A.(H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <tr>
+                <td align="right">  Débito Fiscal Transitorio(H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">P % : </td>
+                <td align="right"><input type="number" /> </td>
+              </tr>
+              <tr>
+                <td align="right"> Descuento sobre Venta(D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+               
+              </tr>
+              <tr>
+                <td align="right">  Recargo sobre Venta(H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">  Costo sobre Venta (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">  Inventario de Almacén(H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">  Caja (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">  Venta de Servicio (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">  Venta de Producto (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}">
+        <!--  Cliente -->
+        <br />
+
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Clientes por Cobrar (D) :</td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Anticipo de Cliente (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+             <tr>
+                <td align="right"> Devolución sobre Ventas (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}">
+        <!-- Cuenta por pagar-->
+        <br />
+         <center> Cuenta Debe (Descripción) : <input type="text">
+         <button class="btn btn-success">Agregar</button>
+         </center>
+            <table align="center">
+            <thead>
+              <th align="right">Descripción</th>
+              <th align="right">Cuenta</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="right">Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+          <div class="espacio"></div>
+          <center> Cuenta Haber (Descripción) : <input type="text">
+         <button class="btn btn-success">Agregar</button>
+         </center>
+            <table align="center">
+            <thead>
+              <th align="right">Descripción</th>
+              <th align="right">Cuenta</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="right">Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <!-- fin cuentas por cobrar -->
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': SubactiveTab === 4, 'tab-pane' : SubactiveTab !== 4}">
+        <!-- Cuenta por pagar -->
+        <br />
+            <center> Cuenta Debe (Descripción) : <input type="text">
+         <button class="btn btn-success">Agregar</button>
+         </center>
+            <table align="center">
+            <thead>
+              <th align="right">Descripción</th>
+              <th align="right">Cuenta</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="right">Costo Operativo (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Crédito Fiscal (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              </tbody>
+          </table>
+          <div class="espacio"></div>
+          <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Crédito Fiscal (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+                <td align="right">P % : <input type="text"> </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': SubactiveTab === 5, 'tab-pane' : SubactiveTab !== 5}">
+        <!-- Pagar Automatico -->
+        <br />
+            <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Costo Pasivo : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Cuenta Gastos: </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Cuenta Gastos: </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+        </div>
+      <!-- fin ventas -->
+      </div>        
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 4, 'tab-pane' : activeTab !== 4}">
+      <!-- RRHH -->
+      <br />
+      <table align="center">
+            <tbody>
+              <tr>
+                <td align="right"> Anticipo de Sueldo (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"> Descuento del Personal (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> suledo y Salarios (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Bono de Antigüedad (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Horas Extras (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Bono y Producción (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Otros Bonos (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Sueldos y Salarios P/Pagar (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Aporte y Retenciones P/Pagar (D): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Seguro Médico (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Aporte Patronal (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Aporte Laboral (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Aguinaldo (gasto) (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Aguinaldo por Pagar (H): </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Prev. por Indemnización (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Prev. por Aguinaldo (D) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Prev. al Personal (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+               <tr>
+                <td align="right"> Caja Previsión (H) : </td>
+                <td align="right"> 
+                  <select name="rubro" id="rubro">
+                    <option value="servicio" selected="selected">--Seleccione opción--</option>
+                    <option value="cuenta">Cuenta</option>
+                    <option value="activo">Activo</option>
+                  </select>
+                </td>
+              </tr>
+              <!-- fin cuentas 2 -->
+            </tbody>
+          </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 5, 'tab-pane' : activeTab !== 5}">
+      <!--  -->
+      <br />
+      </div>
+</div>
+</div>
+</div>

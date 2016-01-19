@@ -1,0 +1,101 @@
+<div class="container" style="position:absolute">
+<h2> PROVEEDORES   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="btn btn-primary">Guardar</button>
+	<button class="btn btn-danger">Cancelar</button>
+	</h2>
+
+	<ul class="nav nav-tabs">
+  	<li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Nuevo</a></li>
+  	<li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Listar</a></li>
+  </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}">
+      <!-- EMPRESA -->
+      <br />
+          <table>
+          <tbody>
+          <tr>
+            <td align="right">Nombre Comercial * : </td><td><input type="text"></td>
+            <td align="right">Contacto  :</td><td><input type="number"></td>
+          </tr>
+          <tr>
+            <td align="right">Nombre NIT * : </td><td><input type="text"></td>
+            <td align="right">NIT   :</td><td><input type="number"></td>
+          </tr>
+          <tr>
+            <td align="right">Dirección * : </td><td><input type="text"></td>
+            <td align="right">Nombre de Banco * :</td><td><input type="text"></td>
+          </tr>
+          </tbody>
+          <!-- <div class="espacio"></div> -->
+          <!-- segunda parte -->
+          <tbody>
+          <tr>
+            <td align="right">Teléfono  : </td><td><input type="number"></td>
+            <td align="right">Cuenta Bancaria  :</td><td><input type="number"></td>
+          </tr>
+          <tr>
+            <td align="right">E-mail  : </td><td><input type="email"></td>
+            <td align="right">Fecha de Inicio  :</td><td><input type="date"></td>
+          </tr>
+          <tr>
+            <td align="right">Skype  : </td><td><input type="text"></td>
+            <td align="right">Rubro:
+            </td>
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Sitio Web : </td><td><input type="email"></td>
+            <td align="right">Pais :</td><td><input type="date"></td>
+          </tr>
+          <tr>
+            <td align="right">Facebook : </td><td><input type="text"></td>
+            <td align="right">Ciudad  :</td>
+            <td >
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Tiempo de Crédito : </td><td><input type="email"></td>
+          </tr>
+          </tbody>
+          </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}">
+      <!-- LISTAR -->
+      <br />
+      <div class="col-md-12">
+      	<select name="" id="">
+          <option value="numero" selected="selected">N°</option>
+          <option value="nombre">Nombre</option>
+        </select>				
+       	<input type="text" placeholder="Buscar">
+      </div>
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
+          <thead>
+          <th></th>
+          <th></th>
+          <th>N°</th>
+          <th>Nombre Comercial</th>
+          <th>Nombre Nit</th>
+          <th>N.I.T.</th>
+          <th>Contacto</th>
+          <th>Télefono</th>
+          <th>Email</th>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+</div>

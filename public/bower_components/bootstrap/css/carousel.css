@@ -1,0 +1,276 @@
+.zoom{
+  transition: width 0.8s, height 0.8s, transform 0.8s;
+  -moz-transition: width 0.8s, height 0.8s, -moz-transform 0.8s;
+  -webkit-transition: width 0.8s, height 0.8s, -webkit-transform 0.8s;
+  -o-transition: width 0.8s, height 0.8s,-o-transform 0.8s;
+}
+.zoom:hover{
+  transform : scale(1.2);
+  -moz-transform : scale(1.2);      /* Firefox */
+  -webkit-transform : scale(1.2);   /* Chrome - Safari */
+  -o-transform : scale1.22);        /* Opera */
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 0px;
+  color: #5a5a5a;
+}
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+  background: #3C8DBC;  
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class 
+responsive para celular
+*/
+.carousel {
+  height: 400px;
+  margin-bottom: 0px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 400px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 400px;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 0px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+.logo{
+    width: 50%;
+    padding-top: -50px;
+  }
+@media (min-width: 767px) {
+  .featurette-heading {
+    margin-top: 60px;
+  }
+  /* --  responsive carousel computadora pc --*/
+  .carousel {
+  height: 600px;  
+  }
+  .carousel .item {
+  height: 600px;  
+  }
+  .carousel-inner > .item > img {
+  height: 600px;
+  }
+  .logo{
+    width: 90%;
+  }
+}
+/*pantalla mas pequeña*/
+@media (max-width: 400px) {
+  
+.logo{
+  position: absolute;
+  width: 45%;
+  }
+.navbar-header{
+  height: 50px;
+  }
+.navbar-brand {
+  padding: 3px 3px;
+  }
+}
+/**/
+@media (max-width: 1117px) {
+.logo{
+  width: 48%;
+  }
+}
+/*-- lunascrid --*/
+.espacio{
+  width: 100%;
+  height:50px;
+}
+.blanco{
+color:white;
+}
+.verde{
+color:#10FF10;
+}
+.naranja-fondo{
+  background-color:#FF710F;
+}
+.verde-menu {
+  color:white;
+  background-color:#10FF10;
+}
+.verde-menu a{
+  color:white;
+  /*background-color:#10FF10;*/
+  background: rgba(18, 162, 18, 0.8);
+}
+.blanco:hover{
+  color:#fff;
+}
+.navbar-nav > li > a {
+  background:#3C8DBC;
+  color: #fff;
+}
+.navbar-nav > li > a:hover {
+  background: #DD4B39;
+  color: white;
+}
+.linea{
+  background-color: #fff;
+}
+.footer-lunascrid{
+  background-color: #707070; 
+  padding: 5px;
+}
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #DD4B39;
+  color: #fff;
+  font-weight: bold;
+}
+
+.centreado{
+  text-align: center;
+}
+.texto-grueso{
+  font-weight: bold;
+  color:black;
+}
+/*hover de menu izquierdo*/
+ul > li > a:focus {
+/*background-image: repeating-linear-gradient(
+      90deg,
+      yellow,
+      yellow 10px,
+      red 10px,
+      red 20px /* determines size lineas
+    );*/
+ /*background-image: linear-gradient(90deg,#3c8dbc, #000);*/
+  /*background-color: #fff;
+  background: #fff;
+  background-image:
+    linear-gradient(90deg,#3c8dbc,#000 10%
+    );
+    color: white;*/
+    /*background-image:
+    linear-gradient(
+      #fffdc2,
+      #000 0%,
+      #3c8dbc 15%,
+      #000 100%,
+      #000 85%
+    );*/ 
+}
+
+
+.fondo-blanco{
+  position: relative;
+  background: white;
+  width: 95%;
+  height: auto;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.main-sidebar{
+  height: 100%;
+}

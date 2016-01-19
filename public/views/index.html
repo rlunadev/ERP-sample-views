@@ -1,0 +1,58 @@
+<style type="text/css">
+  @media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+</style>
+<div class="navbar-wrapper">
+  <div class="container">
+    <nav class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                
+          <span class="icon-bar linea" ></span>
+          <span class="icon-bar linea" ></span>
+          <span class="icon-bar linea" ></span>
+          </button>
+          <a class="navbar-brand" href="#">
+          <img src="./public/img/logo.jpg" class="logo zoom">
+          
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li><a ui-sref="main.inicio">INICIO</a></li>
+              <li><a ui-sref="main.inventario">INVENTARIO</a></li>
+              <li><a ui-sref="main.recursos">RECURSOS</a></li>
+              <li><a ui-sref="main.ventas">VENTAS</a></li>
+              <li><a ui-sref="main.contabilidad">CONTABILIDAD</a></li>
+              <li><a ui-sref="main.activo">ACTIVO</a></li>
+              <li><a ui-sref="main.agenda">AGENDA</a></li>
+              <li><a ui-sref="main.configuracion">CONFIGURACIÓN</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="espacio"></div>
+    <div ui-view>   
+    <!-- contenido inicio -->
+        
+    <!-- contenido final -->
+    </div>
