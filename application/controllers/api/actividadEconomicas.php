@@ -28,35 +28,28 @@ class actividadEconomicas extends REST_Controller
     function actividadEconomica_get()
     {
         $actividadEconomica = $this->actividadEconomica->getAll()->result();
-        if($actividadEconomica)
-        {
+        if ($actividadEconomica) {
             $this->response($actividadEconomica, 200);
-        }
-        else
-        {
-            $this->response(array('error' => 'no se encontro el actividad Economica'), 404);
+        } else {
+          	$this->response(array('error' => 'no se encontro el actividad Economica'), 404);
         }
     }
 
     function actividadEconomica_put()
-  {
-    try 
-    {
-       $id_actividadEconomica=$this->get('id_actividadEconomica');
-       $input_values = $this->put();
-       $item = $this->actividadEconomica->modifica($id_actividadEconomica, $input_values);
-       $this->response($item, 200);
-       //$this->response(array('id'=>$id_actividadEconomica), 200);
-    }
-    catch (Exception $e) 
-    {
-     $this->response(array("error" => $e->getMessage()), 404);
-    }
-  }
-    function actividadEconomica_post()
-    {
-        $input=(array)json_decode(file_get_contents("php://input"));
-        $product=$this->actividadEconomica->save($input);
+  	{
+	    try {
+	       $id_actividadEconomica = $this->get('id_actividadEconomica');
+	       $input_values = $this->put();
+	       $item = $this->actividadEconomica->modifica($id_actividadEconomica, $input_values);
+	       $this->response($item, 200);
+	    } catch (Exception $e) {
+	     $this->response(array("error" => $e->getMessage()), 404);
+	    }
+  	}
+
+    function actividadEconomica_post() {
+        $input = (array) json_decode(file_get_contents("php://input"));
+        $product = $this->actividadEconomica->save($input);
         $this->response($product, 200);
     }
 
@@ -64,10 +57,11 @@ class actividadEconomicas extends REST_Controller
     {
         $id = $this->get('id_actividadEconomica');
         $this->actividadEconomica->delete($id);
-        $this->response(array('param'=>$id), 200);
+        $this->response(array('param' => $id), 200);
     }
-	function send_post()
-	{
-	var_dump($this->request->body);
-	}	
+
+		function send_post()
+		{
+			var_dump($this->request->body);
+		}
 }
