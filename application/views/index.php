@@ -25,6 +25,7 @@
     
     <!-- <script src="./public/bower_components/bower-angular-sanitize-master/angular-sanitize.js"></script> -->
     <script src="./public/bower_components/angular/angular.min.js"></script>
+    <script src="./public/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="./public/bower_components/ng-file-upload/ng-file-upload.js"></script>
 
     <script src="./public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>

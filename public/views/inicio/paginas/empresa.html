@@ -78,9 +78,16 @@
             </tr>
             <tr>
               <td align="right"><label class="text" >Sitio Web (Url) :</label> </td><td> <input type="text" class="" value="{{parametro.sitio_web}}" ng-model="parametro.sitio_web" required/> </td>
-              <td align="right"><label class="text" >Fecha Vencimiento :</label> </td><td><input type="date" class="input-group date" ng-model="parametro.fecha_vencimiento" required/> </td>
+              <td align="right"><label class="text" >Fecha Vencimiento :</label> </td><td>
+               <p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+              </p>
+              </td>
               <td >
-                   <input type="date" name="fecha">
+                   
               </td>              
 
             </tr>

@@ -1,9 +1,9 @@
 'use strict';
 var app=angular.module('seedApp')
-.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','tc','rubro','ciudad','plandecuenta','ingresoproducto',
+.controller('contabilidadController', ['$scope','$filter','plandecuenta',
   //lista los productos
 
-  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto) {
+  function($scope,$filter,parametro,plandecuenta) {
 	var dir="./public/img/";
   //PARAMETRO
     $scope.parametros = [];
