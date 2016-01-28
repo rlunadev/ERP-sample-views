@@ -1,1 +1,65 @@
-<h2>DEPARTAMENTO</h2>
+<div class="container" style="position:absolute">
+  <div ng-model="departamento">
+    <!-- <form class="form-signin">  -->
+    <h2>DEPARTAMENTO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="savedepartamento(departamento)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Datos departamento</a></li>
+      <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Listar</a></li>
+      <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Reportes</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}" class="fondo-blanco">
+      <table width="100%">
+        <tr>
+          <td align="right"><label class="text">Nombre * :</label></td>
+          <td><input type="text" ng-model="departamento.nombre"></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Descripción * :</label></td>
+          <td><textarea ng-model="departamento.descripcion"></textarea></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Cuenta Contable * :</label></td>
+          <td>
+                <select ng-model="departamento.id_cuenta_contable" required>
+                <option ng-repeat="plandecuenta in plandecuentas" 
+                value="{{plandecuenta.id_plandecuenta}}">{{plandecuenta.cuenta}}</option>
+                </select>
+              </td>
+        </tr>
+      </table>
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}" class="fondo-blanco">
+      <table width="95%">
+        <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <td><select><option>N°</option></select></td>
+          <td colspan="6"><input type="text" placeholder="Buscar"></td>
+        </tr>
+        <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <td>N°  </td>
+          <td>Departamento</td>
+          <td>Descripcion</td>
+          <td>Cuenta</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr ng-repeat="departamento in departamentos">
+          <td>{{departamento.id_departamento}}</td>
+          <td>{{departamento.nombre}}</td>
+          <td>{{departamento.descripcion}}</td>
+          <td>{{departamento.id_cuenta_contable}}</td>
+          <td ng-click="departamento_modal(departamento)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span> 
+        </td>
+          <td ng-click="deletedepartamento(departamento,$index)"> <span class="glyphicon glyphicon-trash"></span> </td>
+        </tr>         
+      </table>
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}" class="fondo-blanco">
+      <h2>Reporte</h2>
+      </div>
+    </div>
+  </div>
+</div>

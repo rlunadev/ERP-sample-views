@@ -1,1 +1,698 @@
-<h2>TRABAJADORES</h2>
+<div class="container" style="position:absolute">
+  <div ng-model="trabajador">
+    <!-- <form class="form-signin">  -->
+    <h2>TRABAJADORES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="savetrabajador(trabajador)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+    <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Datos Trabajador</a></li>
+    <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Listar</a></li>
+    <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Reportes</a></li>
+  </ul>
+<div class="tab-content">
+  <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}">
+  <!-- datos trabajador-->
+    <!-- tap panel -->
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Trabajador</a></li>
+      <li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Educación</a></li>
+      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Hábitos</a></li>
+      <li ng-class="{'active' : activeTab == 4}"><a href="" ng-click="setActiveTab(4)">Datos Matrimoniales </a></li>
+      <li ng-class="{'active' : activeTab == 5}"><a href="" ng-click="setActiveTab(5)">
+      Datos Familiares </a></li>
+      <li ng-class="{'active' : activeTab == 6}"><a href="" ng-click="setActiveTab(6)">Garante Personal</a></li>
+      <li ng-class="{'active' : activeTab == 7}"><a href="" ng-click="setActiveTab(7)">Contrato Laboral </a></li>
+      <li ng-class="{'active' : activeTab == 8}"><a href="" ng-click="setActiveTab(8)">Horario </a></li>
+      <li ng-class="{'active' : activeTab == 9}"><a href="" ng-click="setActiveTab(9)">Documentos </a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}" class="fondo-blanco">
+        <!-- EMPRESA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right"><label class="text">Nombres * :</label></td><td><input type="text" ng-model="trabajador.nombres" required autofocus /> </td>
+              <td align="right"><label class="text">Apellidos :</label> </td>
+              <td>
+              <input type="text" ng-model="trabajador.apellidos" required autofocus />
+              <!--<select ng-model="trabajador.rubro" value="{{trabajador.rubro}}" required>
+                  <option ng-repeat="rubro in rubros"value="{{rubro.id_rubro}}"  title="" ng-selected="rubro.id_rubro==trabajador.rubro">{{rubro.descripcion}}</option>
+              </select> -->
+              </td>
+              <td align="right"><label class="text">Foto :</label></td>
+              <td> <input type="file" ng-model="trabajador.foto" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text">Fecha Nac. * :</label></td><td><input type="text" class=""ng-model="trabajador.fecha_nac" required/> </td>
+              <td align="right"><label class="text">Nacionalidad:</label></td><td> <input type="text" class="" ng-model="trabajador.nacionalidad"/> </td>
+              <!-- value="{{trabajador.copia_correo}}"required -->
+              <td align="right"><label class="text">Ciudad de origen :</label> </td><td> <input type="text" class=""ng-model="trabajador.ciudad_origen" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text">C.I.: * :</label></td>
+              <td><input size="10" type="text" class="" ng-model="trabajador.ci_trabajador"required/> 
+              <select>
+              <option value="">LP</option>
+              <option value="">SCZ</option>
+              <option value="">CBBA</option>
+              <option value="">SC</option>
+              <option value="">PT</option>
+              <option value="">OR</option>
+              <option value="">PA</option>
+              <option value="">TR</option>
+              <option value="">BE</option>
+              </select>
+              </td>
+              <td align="right"><label class="text">Domicilio :</label></td><td> <input type="text" class="" ng-model="trabajador.domicilio"/> </td>
+              <!-- value="{{trabajador.copia_correo}}"required -->
+              <td align="right"><label class="text">Email personal :</label> </td><td> <input type="text" class=""ng-model="trabajador.email_personal" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text">Sexo: * :</label></td>
+              <td><select ng-model="trabajador.sexo">
+              <option value="M" selected>Masculino</option>
+              <option value="F">Femenino</option>
+              </select></td>
+              <td align="right"><label class="text">Celular :</label></td>
+              <td> <input type="text" class="" ng-model="trabajador.celular"/> </td>
+              <!-- value="{{trabajador.copia_correo}}"required -->
+              <td align="right"><label class="text">Teléfono :</label> </td><td> <input type="text" class=""ng-model="trabajador.telefono" required/> </td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text">N° Libreta Militar: * :</label></td>
+              <td><input type="text" class=""ng-model="trabajador.n_libreta_militar" required/></td>
+              <td align="right"><label class="text">Unidad :</label></td><td> <input type="text" class="" ng-model="trabajador.unidad"/> </td>
+              <!-- value="{{trabajador.copia_correo}}"required -->
+              <td align="right"><label class="text">Almacen :</label> </td>
+              <td> <select><option>-- Seleccione --</option></select></td>
+            </tr>
+            <tr>
+              <td align="right"><label class="text">Tipo de Sangre: * :</label></td>
+              <td><input type="text" class=""ng-model="trabajador.tipo_sangre" required/></td>
+              <td align="right"><label class="text">Cajero:</label></td>
+              <td> <input type="checkbox" /></td>
+              <td><label class="text">Vendedor:</label></td>
+              <td><input value="1" type="checkbox" class="" /> </td>
+            </tr>
+            <tr>
+            	<td align="" colspan="2"><label class="text">Licencia de Conducir</label></td>
+            </tr>
+            <tr>
+            	<td align="right" >Moto :</td> <td> <input type="checkbox"  required/> </td>
+            	<td align="right" >F/Venvimiento:</td><td><input type="text" class="" required/></td>
+            </tr>
+            <tr>
+            	<td align="right" >Vehivulo:</td><td> <input type="checkbox" required/> </td>
+            	<td align="right" >F/Venvimiento:</td><td><input type="text" class="" required/></td>
+            	<td align="right" > Categoria:<select>
+              <option>P</option>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>M</option>
+              </select></td>
+            </tr>
+            <tr>
+            	<td colspan="2"><label class="text">Domicilo y estado</label></td>
+            </tr>
+            <tr>
+              <td align="right"> Alquiler</td><td><input type="radio"></td>
+              <td align="right"> Anticretico</td><td><input type="radio"></td>
+              <td align="right"> Propio</td><td><input type="radio"></td>
+            </tr>
+            <tr>
+              <td align="right"> Padres</td><td><input type="radio"></td>
+              <td align="right"> Otros</td><td><input type="radio"></td>
+            </tr>
+            <tr>
+              <td><label class="text">Observaciones</label></td>
+              <td colspan="2"><textarea cols=""></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 2, 'tab-pane' : activeTab !== 2}" class="fondo-blanco">
+        <!-- DATOS LEGALES -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+          <tr>
+            <td align="right"><label class="text">Nivel </label></td>
+            <td align="center"><label class="text">Lugar</label></td>
+            <td align=""><label class="text">Año :</label></td>
+            <td align=""><label class="text">Nivel de Aprobación :</label></td>
+          </tr>
+          <tr>
+            <td align="right"><label class="text">Primaria :</label></td>
+            <td align=""><input type="text" class="" required/></td>
+            <td align=""><select><option>1990</option></select></td>
+            <td align=""><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"><label class="text">Secundaria :</label></td>
+            <td align=""><input type="text" class="" required/></td>
+            <td align=""><select><option>1990</option></select></td>
+            <td align=""><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="right"><label class="text">Universidad :</label></td>
+            <td align=""><input type="text" class="" required/></td>
+            <td align=""><select><option>1990</option></select></td>
+            <td align=""><input type="text"></td>
+          </tr>
+          <tr>
+            <td align="center"><label class="text">Idiomas</label></td>
+            <td align="center"><label class="text">Descripción :</label></td>
+            <td align="center"><label class="text">Dominio :</label></td>
+          </tr>     <tr>
+            <td align="center"></td>
+            <td align="center"><input type="text" class="" required/></td>
+            <td align="center"><select><option>Perfectamente</option></select></td>
+          </tr>
+          <tr>
+            <td align="center"></td>
+            <td align="center"><input type="text" class="" required/></td>
+            <td align="center"><select><option>Perfectamente</option></select></td>
+          </tr>
+          <tr>
+            <td align="center"></td>
+            <td align="center"><input type="text" class="" required/></td>
+            <td align="center"><select><option>Perfectamente</option></select></td>
+          </tr>
+
+          <tr>
+            <td align="center"><label class="text">Habilidades</label></td>
+            <td align="center"><label class="text">Descripción :</label></td>
+            <td align="center"><label class="text">Dominio :</label></td>
+          </tr>
+          <tr>
+            <td align="center"></td>
+            <td align="center"><input type="text" class="" required/></td>
+            <td align="center"><select><option>Perfectamente</option></select></td>
+          </tr>
+          <tr>
+            <td align="center"></td>
+            <td align="center"><input type="text" class="" required/></td>
+            <td align="center"><select><option>Perfectamente</option></select></td>
+          </tr>
+          <tr>
+            <td align="center"></td>
+            <td align="center"><input type="text" class="" required/></td>
+            <td align="center"><select><option>Perfectamente</option></select></td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div ng-class="{'tab-pane active': activeTab === 3, 'tab-pane' : activeTab !== 3}" class="fondo-blanco">
+        <!-- DATOS DE PORTADA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"><label class="text">¿Consume algun tipo de droga?</label></td>
+            </tr>
+            <tr>
+              <td align="center">a) Alcohol</td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">b) Fuma</td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">c) Medicamento</td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">d) Droga</td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">e) Mariguana</td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center"><label class="text">¿Estado de salud</label></td>
+            </tr>
+            <tr>
+              <td align="center">a)Actualmente se encuentra sana</td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">b)¿Tiene alguna enfermedad diagnosticada? </td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">c)¿Tiene SIDA o es portador de VIH? </td>
+              <td align="left">SI<input type="radio"></td>
+              <td align="left">NO<input type="radio" checked=""></td>
+            </tr>
+            <tr>
+              <td align="center">d)¿Ha sufrido algún accidente o alguna elteración fisica? </td>
+              <td align="">SI<input type="radio"></td>
+              <td align="">NO<input type="radio"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-class="{'tab-pane active': activeTab === 4, 'tab-pane' : activeTab !== 4}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <tbody>
+              <tr>
+                <td align="left"><label class="text">Estado Civil</label></td>
+                <td align="">
+                <select><option>soltero</option></select>
+                </td>
+                <td align="left"><label class="text">Situación Civil</label></td>
+                <td align="">
+                <select><option>soltero</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Conyugue:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Celular</label></td>
+                <td align="">
+                <td align=""><input type="text"></td>
+                </td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Lugar Nacimiento:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Fecha Nacimiento</label></td>
+                <td align="">
+                <td align=""><input type="text"></td>
+                </td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Empresa de trabajo:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Dirección</label></td>
+                <td align="">
+                <td align=""><input type="text"></td>
+                </td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Tiene Hijos</label></td>
+                <td><select><option>SI</option></select></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-md-12" style="background:#999;border-radius:5px;color:white; padding:4px;">
+              <div class="col-md-11">
+                <table width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="left"><label class="text">Tipo:</label></td>
+                      <td align="left"><label class="text">Nombre y Ap.:</label></td>
+                      <td align="left"><label class="text">Genero:</label></td>
+                      <td align="left"><label class="text">F/Nacimiento:</label></td>
+                      <td align="left"><label class="text">Edad:</label></td>
+                      <td align="left"><button class="btn btn-default">Agregar</button></td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                      <select><option>Dependiente</option></select></td>
+                      <td align="left"><input type="text"></td>
+                      <td align="left"><input type="text"></td>
+                      <td align="left"><input type="text"></td>
+                      <td align="left"><input type="text"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+                <div class="espacio"></div>
+                <table width="100%">
+                  <thead style="background:#575;border-radius:5px;color:white;">
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Genero</th>
+                    <th>F./Nacimiento.</th>
+                    <th>Edad</th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+        <div ng-class="{'tab-pane active': activeTab === 5, 'tab-pane' : activeTab !== 5}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <div class="row">
+            <div class="col-md-12" style="background:#999;border-radius:5px;color:white; padding:4px;">
+              <div class="col-md-11">
+                <table width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="left"><label class="text">Parentesco:</label></td>
+                      <td align="left"><label class="text">Nombre Parentesco.:</label></td>
+                      <td align="left"><label class="text">Dirección:</label></td>
+                      <td align="left"><label class="text">Teléfono:</label></td>
+                      <td align="left"><label class="text">Edad:</label></td>
+                      <td align="left"><button class="btn btn-default">Agregar</button></td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                      <select><option>Padre</option></select></td>
+                      <td align="left"><input type="text"></td>
+                      <td align="left"><input type="text"></td>
+                      <td align="left"><input type="text"></td>
+                      <td align="left"><input type="text"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+                <div class="espacio"></div>
+                <table width="100%">
+                  <thead style="background:#575;border-radius:5px;color:white;">
+                    <th>Parentesco</th>
+                    <th>Nombre</th>
+                    <th>F./Nacimiento.</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </div>
+        </div>
+        <div ng-class="{'tab-pane active': activeTab === 6, 'tab-pane' : activeTab !== 6}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <tbody>
+                <tr><td>Datos del Garante</td></tr>
+                <tr>
+                  <td align="left"><label class="text">Nombre:</label></td>
+                  <td align=""><input type="text"></td>
+                  <td align="left"><label class="text">Estado Civil</label></td>
+                  <td align=""><select><option>Soltero</option></select></td>
+                </tr>
+                <tr>
+                  <td align="left"><label class="text">Apellido:</label></td>
+                  <td align=""><input type="text"></td>
+                  <td align="left"><label class="text">Nacionalidad</label></td>
+                  <td align=""><input type="text"></td>
+                </tr>
+                <tr>
+                  <td align="left"><label class="text">Dirección:</label></td>
+                  <td align=""><input type="text"></td>
+                  <td align="left"><label class="text">Profesión:</label></td>
+                  <td align=""><input type="text"></td>
+                </tr>
+                <tr>
+                  <td align="left"><label class="text">Teléfono:</label></td>
+                  <td align=""><input type="text"></td>
+                  <td align="left"><label class="text">Ingreso Mensual:</label></td>
+                  <td align=""><input type="text"></td>
+                </tr>
+                <tr>
+                  <td align="left"><label class="text">Parentesco:</label></td>
+                  <td align=""><input type="text"></td>
+                  <td align="left"><label class="text">Nombre Conyugue:</label></td>
+                  <td align=""><input type="text"></td>
+                </tr>
+                <tr>
+                  <td align="left"><label class="text">Tiempo:</label></td>
+                  <td align=""><input type="text"></td>
+                  <td align="left"><label class="text">Ingreso Conyugue:</label></td>
+                  <td align=""><input type="text"></td>
+                </tr>
+                <tr>
+                  <td align="left"><label class="text">Tenencia de Vivienda:</label></td>
+                  <td align=""><select><option>Propia</option></select></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': activeTab === 7, 'tab-pane' : activeTab !== 7}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <tbody>
+              <tr>
+                <td align="left"><label class="text">Cargo:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Sueldo Básico:</label></td>
+                <td><select><option>Cargo</option></select></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Fecha Ingreso:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Bono Produccion:</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Fecha Finalizacion:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Bonos Metas:</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Departamento:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Bono Puntualidad:</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Forma de Pago de Sueldo:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">Bono Asistencia:</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Nombre del Banco:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">N° Cuenta Bancaria:</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Correo Corporativo:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">N° Seguro Médico:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:Fecha Inicio</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Sucursal Planilla:</label></td>
+                <td><select><option>Cargo</option></select></td>
+                <td align="left"><label class="text">N° A.F.P.:</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:Fecha Inicio</label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Centro de Negocio:</label></td>
+                <td align=""><input type="text"></td>
+                <td><select><option>AFP PREVISIÓN</option></select></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Sucursal de Trabajo:</label></td>
+                <button type="file" class="btn btn-default">Seleccione</button>
+              </tr>
+              <tr>
+                <td align="center">
+                  L <input type="checkbox" /><!-- L -->
+                  M <input type="checkbox" /><!-- M -->
+                  M <input type="checkbox" /><!-- M -->
+                  J <input type="checkbox" /><!-- J -->
+                  V <input type="checkbox" /><!-- V -->
+                  S <input type="checkbox" /><!-- S -->
+                  D <input type="checkbox" /><!-- D -->
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': activeTab === 8, 'tab-pane' : activeTab !== 8}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <tbody>
+              <tr>
+                <td align="left"><label class="text">Modalidad de Contrato:</label></td>
+                <td><select><option>Temporal</option></select></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Contrato para.:</label></td>
+                <td><select><option>Administración</option></select></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Control para Asistencia.:</label></td>
+                <td><select><option>Sin Monitoreo</option></select></td>  
+              </tr>
+
+              <tr>
+                <td>Administración</td>
+                <td style="background:#575;border-radius:5px;color:white;">
+                  AM
+                  <select><option>1:</option></select>
+                  <select><option>00</option></select>
+                  -
+                  <select><option>1:</option></select>
+                  <select><option>00</option></select>
+
+                  PM 
+                  <select><option>13:</option></select>
+                  <select><option>00</option></select>
+                  -
+                  <select><option>13:</option></select>
+                  <select><option>00</option></select>
+
+                </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td>Administración</td>
+                <td style="background:#575;border-radius:5px;color:white;">
+                  INGRESA
+                  <select><option>1:</option></select>
+                  SALE
+                  <select><option>13:</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td>Campo</td>
+                <td style="background:#575;border-radius:5px;color:white;">
+                  DIAS TRABAJO
+                  <select><option>1:</option></select>
+                  DIAS DESCANSO
+                  <select><option>13:</option></select>
+                </td>
+              </tr>              
+            </tbody>
+          </table>
+        </div>
+        <div ng-class="{'tab-pane active': activeTab === 9, 'tab-pane' : activeTab !== 9}" class="fondo-blanco">
+        <!-- ACTIVIDAD ECONOMICA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+            <tbody>
+              <tr>
+                <td align="left"><label class="text">Preocupacional :</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Seguro de vida :</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Seguro Personal :</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Vacuna :</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">C.I.:</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Manejo Defensivo:</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+              <tr>
+                <td align="left"><label class="text">Examenes Medicos :</label></td>
+                <td align=""><input type="file"></td>
+                <td align="left"><label class="text">F/Inicio :</label></td>
+                <td align=""><input type="text"></td>
+                <td align="left"><label class="text">:F/Final </label></td>
+                <td align=""><input type="text"></td>
+              </tr>
+             </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}">
+      <table width="95%">
+        <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <td><select><option>N°</option></select></td>
+          <td colspan="6"><input type="text" placeholder="Buscar"></td>
+        </tr>
+        <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <td>N°  </td>
+          <td>Nombre Completo</td>
+          <td>C.I.</td>
+          <td>Cargo</td>
+          <td>Sexo</td>
+          <td>Sucursal</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr ng-repeat="trabajador in trabajadors">
+          <td>{{trabajador.id_trabajador}}</td>
+          <td>{{trabajador.nombres}} {{trabajador.apellidos}}</td>
+          <td>{{trabajador.ci_trabajador}}</td>
+          <td>{{trabajador.id_cargo}}</td>
+          <td>{{trabajador.sexo}}</td>
+          <td>{{trabajador.id_almacen}}</td>
+          <td ng-click="trabajador_modal(trabajador)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span> 
+        </td>
+          <td ng-click="deletetrabajador(trabajador,$index)"> <span class="glyphicon glyphicon-trash"></span> </td>
+        </tr>         
+
+      </table>
+
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}">
+      <h2>Reporte</h2>
+      </div>
+    </div>
+  </div>
+</div>

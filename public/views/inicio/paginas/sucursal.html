@@ -1,8 +1,6 @@
 <div class="container" style="position:absolute">
   <div ng-model="sucursal">
   <form ng-submit="savesucursal(sucursal)">
-    
-  
     <h2>SUCURSAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      <button type="submit" class="btn btn-primary"  >Guardar</button>
      <button class="btn btn-danger">Cancelar</button>
@@ -19,7 +17,6 @@
         <thead>
         </thead>
         <tbody>
-
           <tr>
             <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" required/> </td>
             <td align="right">N° de Sucursal :</td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"required/> </td>
@@ -59,7 +56,8 @@
           </tr>
           <tr>
             <td align="right"></td><td></td>
-            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision" /> </td>
+            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision" /> 
+            </td>
           </tr>
           <!-- factura manual -->
           <tr>
@@ -70,7 +68,7 @@
             <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" required/> </td>
           </tr>
           <tr>
-            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.n_fecha_limite_emision_manual" /> 
+            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision_manual" /> 
             <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" required/> </td>
           </tr>
           <tr>
@@ -132,57 +130,74 @@
         <h4 class="modal-title">Editar</h4>
       </div>
     <div class="modal-body">
-      
-      <div class="form-group" >        
-        <label class="col-sm-2 control-label"> Id Evento</label>
-          <div class="col-sm-4">
-            <input type="text" value="{{evento.id_eventos}}"ng-model="evento.id_eventos"class="form-control"disabled="true"/>
-          </div>
-      </div>
-
-      <div class="form-group" >        
-        <label class=" control-label"> Estado</label>
-          <div class="">
-            <input type="text"value="{{evento.estado}}"ng-model="evento.estado"class="form-control"/>
-          </div>
-      </div>
-
-      <div class="form-group" >        
-        <label class=" control-label"> Titulo</label>
-          <div class="">
-            <input type="text"value="{{evento.titulo}}"ng-model="evento.titulo"class="form-control"/>
-          </div>
-      </div>
-      
-      <div class="form-group" >        
-        <label class="control-label"> Fecha</label>
-          <div class="">
-            <input type="date" value="{{evento.fecha}}" ng-model="evento.fecha" class="form-control"/>
-          </div>
-      </div>
-
-      <div class="form-group" >
-        <label for="fecha" class=" control-label">Contenido</label>
-          <div class="">
-            <textarea  value="{{evento.contenido}}" ng-model="evento.contenido" class="form-control">
-            </textarea>
-          </div>
-      </div>
-    
-      <div class="form-group" >
-        <label for="imagen" class=" control-label">Imagen</label>
-          <div class="">
-          <input type="text" value="{{item.imagen}}" ng-model="item.imagen"/> <br>  
-            <input type="file" ng-model="item.imagen" name="file" uploader-model="file" /> <br>  
-            <img src="{{evento.imagen}}" height="150" width="150">
-          </div>
-      </div>
-      
+      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" required/> </td>
+            <td align="right">N° de Sucursal :</td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"required/> </td>
+          </tr>
+          <tr>
+            <td align="right">Dirección : </td><td> <input type="text" class=""  ng-model="sucursal.direccion"required/> </td>
+            <td align="right">Teléfono : </td><td><input type="text" class="" ng-model="sucursal.telefono" required/> </td>
+          </tr>
+          <tr>
+            <td align="right">Ciudad : 
+            </td>
+            <td>
+              <select ng-model="sucursal.ciudad" name="ciudad" id="ciudad" >
+                <option value="servicio" selected="selected" >Beni</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+                <option value="La Paz">La Paz</option>
+                <option value="Oruro">Oruro</option>
+                <option value="Pando">Pando</option>
+                <option value="Potosi">Potosi</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Tarija">Tarija</option>
+              </select>
+            </td>
+          </tr>
+          <!-- factura computarizada -->
+          <tr>
+            <td align="Left">Factura Computarizada :</td>
+          </tr>
+          <tr>
+            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" required/> </td>
+            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" required/> </td>
+          </tr>
+          <tr>
+            <td align="right">Llave de Dosificación : </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion" required/> </td>
+            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final" required/> </td>
+          </tr>
+          <tr>
+            <td align="right"></td><td></td>
+            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision" /> 
+            </td>
+          </tr>
+          <!-- factura manual -->
+          <tr>
+            <td align="Left">Factura Manual :</td>
+          </tr>
+          <tr>
+            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion_manual" required/> </td>
+            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" required/> </td>
+          </tr>
+          <tr>
+            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision_manual" /> 
+            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" required/> </td>
+          </tr>
+          <tr>
+            <td align="right"></td><td></td>
+          </td>
+        </tr>
+      </tbody>
+      </table>
     </div>
-
     <div class="modal-footer">
       <button type="submit" class="btn btn-success">Guardar Cambios</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
     </div>
     </form>
     </div>

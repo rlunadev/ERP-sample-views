@@ -24,11 +24,11 @@
     <script src="./public/bower_components/bootstrap/js/holder.min.js"></script>
     
     <!-- <script src="./public/bower_components/bower-angular-sanitize-master/angular-sanitize.js"></script> -->
-    <script src="./public/bower_components/angular/angular.min.js"></script>
-    <script src="./public/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./public/bower_components/angular/angular.js"></script>
+    <script src="./public/bower_components/angular-animate/angular-animate.js"></script>
     <script src="./public/bower_components/ng-file-upload/ng-file-upload.js"></script>
 
-    <script src="./public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="./public/bower_components/angular-bootstrap/ui-bootstrap-tpls-1.1.0.js"></script>
     <script src="./public/bower_components/angular-resource/angular-resource.js"></script>
     <script src="./public/bower_components/angular-route/angular-route.js"></script>
     <script src="./public/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -37,7 +37,6 @@
     <script src="./public/routes/home.js"></script>
     <!-- controladores -->
     <script src="./public/controllers/main.js"></script>
-    <!-- <script src="./public/controllers/calendar.js"></script> -->
     <!-- servicio -->
     <script src="./public/services/parametro.js"></script>
     <script src="./public/services/actividadEconomica.js"></script>
@@ -49,18 +48,10 @@
     <script src="./public/services/ingresoProducto.js"></script>
     <script src="./public/services/egresoProducto.js"></script>
     <script src="./public/services/plandecuenta.js"></script>
-    <!--<script src="./public/services/evento.js"></script>
-    <script src="./public/services/banner.js"></script>
-    <script src="./public/services/comunicado.js"></script>
-    <script src="./public/services/galeria.js"></script>
-    <script src="./public/services/convocatoria.js"></script>
-    <script src="./public/services/noticia.js"></script>
-    -->
-
-    <!-- LOGIN -->
-    
-    <!-- LOGIN -->
-
+    <!-- RRHH -->
+    <script src="./public/services/trabajador.js"></script>
+    <script src="./public/services/departamento.js"></script>
+    <script src="./public/services/cargo.js"></script>
     </head>
     <body class="homepage" style="background:#ECF0F5">
         <div id="fb-root"></div>

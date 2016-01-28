@@ -1,1 +1,41 @@
-<h2>DESCUENTO</h2>
+<div class="container" style="position:absolute"  ng-repeat="parametro in parametros | limitTo: 1">
+  <div ng-model="parametro">
+    <!-- <form class="form-signin">  -->
+    <h2>DESCUENTOS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Nuevo</a></li>
+      <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Listar</a></li>
+      <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Reporte</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}" class="fondo-blanco">
+      <table width="95%">
+        <tr>
+          <td align="right"><label class="text">Fecha: </label></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Trabajador: </label></td>
+          <td><select><option> Seleccione</option></select></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Monto: </label></td>
+          <td><select><option> Seleccione</option></select></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Descripcion: </label></td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+     </div>
+     <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}" class="fondo-blanco">
+      listar
+     </div>
+     <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}" class="fondo-blanco">
+      reporte
+     </div>
+  </div>
+</div>

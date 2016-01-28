@@ -5,7 +5,19 @@
       <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
       <button class="btn btn-danger">Cancelar</button>
     </h2>
-    <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
+    <!-- tap panel -->
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Empresa</a></li>
+      <li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Datos Legales</a></li>
+      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Datos de portada</a></li>
+      <li ng-class="{'active' : activeTab == 4}"><a href="" ng-click="setActiveTab(4)">Actividad Económica</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}" class="fondo-blanco">
+        <!-- EMPRESA -->
+        <br />
+        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
       <tbody>
         <tr>
           <td colspan="7" align="center"></td>
@@ -32,20 +44,6 @@
         </tr>
       </tbody>
     </table>
-
-    <div class="espacio"></div>
-    <!-- tap panel -->
-    <ul class="nav nav-tabs">
-      <li ng-class="{'active' : activeTab == 1}"><a href="" ng-click="setActiveTab(1)">Empresa</a></li>
-      <li ng-class="{'active' : activeTab == 2}"><a href="" ng-click="setActiveTab(2)">Datos Legales</a></li>
-      <li ng-class="{'active' : activeTab == 3}"><a href="" ng-click="setActiveTab(3)">Datos de portada</a></li>
-      <li ng-class="{'active' : activeTab == 4}"><a href="" ng-click="setActiveTab(4)">Actividad Económica</a></li>
-    </ul>
-    
-    <div class="tab-content">
-      <div ng-class="{'tab-pane active': activeTab === 1, 'tab-pane' : activeTab !== 1}" class="fondo-blanco">
-        <!-- EMPRESA -->
-        <br />
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2">
           <thead>
           </thead>
@@ -78,17 +76,17 @@
             </tr>
             <tr>
               <td align="right"><label class="text" >Sitio Web (Url) :</label> </td><td> <input type="text" class="" value="{{parametro.sitio_web}}" ng-model="parametro.sitio_web" required/> </td>
-              <td align="right"><label class="text" >Fecha Vencimiento :</label> </td><td>
-               <p class="input-group">
-              <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-              </p>
+              <td align="right"><label class="text" >Fecha Vencimiento :</label> </td>
+              <td colspan="3">
+                <p class="input-group">
+                <input type="text" 
+                value="{{parametro.fecha_vencimiento}}"
+                class="form-control" uib-datepicker-popup="{{format}}" ng-model="parametro.fecha_vencimiento" is-open="popup1.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
               </td>
-              <td >
-                   
-              </td>              
 
             </tr>
             <tr>

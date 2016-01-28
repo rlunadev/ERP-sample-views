@@ -1,1 +1,129 @@
-<h2>PARÁMETROS R.R.H.H.</h2>
+<div class="container" style="position:absolute"  ng-repeat="parametro in parametros | limitTo: 1">
+  <div ng-model="parametro">
+    <!-- <form class="form-signin">  -->
+    <h2>PARAMETROS R.R.H.H. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Nuevo</a></li>
+      <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Listar</a></li>
+      <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Reporte</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}" class="fondo-blanco">
+      <table width="95%">
+        <tr>
+          <td align="right"><label type="text">Aporte Laboral:</label></td>
+          <td align="" ><input type="text" size="10">%</td>
+          <td align=""><input type="text" value="Jubilado"size="10"></td>
+          <td align="right"><label type="text">Aporte Patronal:</label></td>
+
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10" value="Jubilado"></td
+        </tr>
+        <tr>
+          <td align="right"><label type="text">Seguro de Vejez:</label></td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align="right"></td><td>Seguro Profesional</td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+        </tr>
+        <tr>
+          <td align="right"><label type="text">Riesgo Común:</label></td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align="right"></td><td>Provivienda</td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+        </tr>
+        <tr>
+          <td align="right"><label type="text">Comisión AFP:</label></td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align="right"></td><td>Aporte Solidario</td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+        </tr>
+        <tr>
+          <td align="right"><label type="text">Aporte solidario:</label></td>
+          <td align=""><input type="text" size="10">%</td>
+          <td align=""><input type="text" size="10">%</td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+          <td align="right"><label class="text">Edad Hombre:</label></td>
+          <td align=""><input type="text"></td>
+          <td align="right"><label class="text">Edad Mujer:</label></td>
+          <td align=""><input type="text"></td>
+          <td align="right"><label class="text">Aporte Patronal P/P:</label></td>
+          <td><select><option>Seleccione Cuenta</option></select></td>
+        </tr>
+      </table>
+      <div class="row">
+        <div class="container">
+          <div class="col-md-6">
+          <center>Seguro Médico</center>
+            <table width="100%">
+              <tr>
+                <td align="right"><label class="text">Seguro Médico:</label></td>
+                <td align=""><input type="text">%</td>
+              </tr>
+            </table>
+          <center>Salario Minimo Nacional</center>
+            <table width="100%">
+              <tr>
+                <td align="right"><label class="text">S.M.N.:</label></td>
+                <td align=""><input type="text">Bs.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-6">
+           <center>Bono de Antigüedad</center>
+             <table width="100%">
+              <tr>
+                <td align="right"><label class="text">2 - 4 Años</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">5 - 7  Años</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">8 - 10 Años</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">11 - 14 Años</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">15 - 19 Años</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">20 - 24 Años</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">25 Adelante</label></td>
+                <td align=""><input type="text" size="7">Bs.</td>
+              </tr>
+              <tr>
+                <td align="right"><label class="text">Bono Antigüedad</label></td>
+                <td><select><option>Seleccione</option></select></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+     </div>
+     <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}" class="fondo-blanco">
+      listar
+     </div>
+     <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}" class="fondo-blanco">
+      reporte
+     </div>
+  </div>
+</div>

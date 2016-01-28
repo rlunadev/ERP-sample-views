@@ -1,1 +1,56 @@
-<h2>CARGO</h2>
+<div class="container" style="position:absolute">
+  <div ng-model="cargo">
+    <!-- <form class="form-signin">  -->
+    <h2>CARGO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="savecargo(cargo)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Datos Trabajador</a></li>
+      <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Listar</a></li>
+      <li ng-class="{'active' : SubactiveTab == 3}"><a href="" ng-click="setSubActiveTab(3)">Reportes</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}" class="fondo-blanco">
+      <table width="100%">
+        <tr>
+          <td align="right"><label class="text">Nombre de Cargo * :</label></td>
+          <td><input type="text" ng-model="cargo.nombre"></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Descripción * :</label></td>
+          <td><textarea ng-model="cargo.descripcion"></textarea></td>
+        </tr>
+      </table>
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}" class="fondo-blanco">
+      <table width="95%">
+        <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <td><select><option>N°</option></select></td>
+          <td colspan="6"><input type="text" placeholder="Buscar"></td>
+        </tr>
+        <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <td>N°  </td>
+          <td>Cargo</td>
+          <td>Descripcion</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr ng-repeat="cargo in cargos">
+          <td>{{cargo.id_cargo}}</td>
+          <td>{{cargo.nombre}}</td>
+          <td>{{cargo.descripcion}}</td>
+          
+          <td ng-click="cargo_modal(cargo)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span> 
+        </td>
+          <td ng-click="deletecargo(cargo,$index)"> <span class="glyphicon glyphicon-trash"></span> </td>
+        </tr>         
+      </table>
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}" class="fondo-blanco">
+      <h2>Reporte</h2>
+      </div>
+    </div>
+  </div>
+</div>
+ 

@@ -75,15 +75,11 @@
               <div class="col-md-3">
                 Cuenta : <input type="text" placeholder="Buscar" /><span class="glyphicon glyphicon-searh"></span>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-9">
                 Descripcion
                 <input type="text" placeholder="" />
-              </div>
-              <div class="col-md-3">
                 Bs.
                 <input type="text" placeholder="" />
-              </div>
-              <div class="col-md-3">
                 $us.
                 <input type="text" placeholder="" />
               </div>
@@ -154,7 +150,7 @@
 	          </td>
 	         </tr>
 	         <tr>
-	          <td align="right" >Almacen :</td>
+	          <td align="right" >Cuenta :</td>
 	          <td>
 	            <select name="rubro" id="rubro">
 	              <option value="sucursal" selected="selected">--Seleccione--</option>
@@ -164,7 +160,7 @@
 	          </td>
 	         </tr>
 	        <tr>
-	          <td align="right" >Grupo :</td>
+	          <td align="right" >Moneda :</td>
 	          <td>
 	            <select name="rubro" id="rubro">
 	              <option value="sucursal" selected="selected">--Seleccione--</option>
@@ -173,10 +169,28 @@
 	            </select>
 	          </td>
 	         </tr>
+           <tr>
+            <td align="right" >Formato :</td>
+            <td>
+              <select name="rubro" id="rubro">
+                <option value="sucursal" selected="selected">--Seleccione--</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+                <option value="Cochabamba">Cochabamba</option>
+              </select>
+            </td>
+           </tr>
           </tbody>
         </table>
-        <button class="btn btn-success">GENERAR REPORTE</button>
-        <br /><br />
-        <button class="btn btn-primary">STOCK DE PRODUCTOS</button>
+        
+        <button class="btn btn-success">INGRESO DE CAJA</button><br />
+        <button class="btn btn-success">INGRESO DE BANCO</button><br />
+        <button class="btn btn-success">MOVIMIENTO DE CAJA</button><br />
+        <button class="btn btn-success">MOVIMIENTO DE BANCO</button><br />
+        <button class="btn btn-success">INGRESO POR CLIENTE</button><br />
+        <button class="btn btn-success">INGRESO POR CUENTA</button><br />
+        <button class="btn btn-success">I. CAJA POR NUMERO</button><br />
+        <button class="btn btn-success">I. DE BANCO POR NUMERO</button><br />
+        <button class="btn btn-success">INGRESO POR COBRANZA</button><br />
+
       </div>
 </div>

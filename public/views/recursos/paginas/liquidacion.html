@@ -1,1 +1,120 @@
-<h2>LIDUIDACIÓN</h2>
+<div class="container" style="position:absolute"  ng-repeat="parametro in parametros | limitTo: 1">
+  <div ng-model="parametro">
+    <!-- <form class="form-signin">  -->
+    <h2>LIQUIDACIÓN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Nuevo</a></li>
+      <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Reporte</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}" class="fondo-blanco">
+      <table width="95%">
+        <tr>
+          <td align="right"><label class="text">Fecha: </label></td>
+          <td><input type="text"></td>
+          <td align="right"><label class="text">Trabajador * :</label></td>
+          <td><select><option>seleccione</option></select></td>
+          <td align="right"><label class="text">Motivo de Retiro :</label></td>
+          <td><select><option>seleccione</option></select></td>          
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Vacación de:</label></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td>Dias Vacaciones Pendientes</td>
+          <td><input type="text">Dias</td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Prima Legal:</label></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td>Dias</td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Otros por Motivo:</label></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td>Bs.</td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Sueldos Pendientes:</label></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td>Bs.</td>
+        </tr>
+      </table>
+      <table width="95%">  
+        <thead>
+		    <tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+		    	<td><label class="text">Sección descuentos:</label></td>
+		    	<td><input type="text"></td>
+		    	<td><label class="text">Descripción:</label></td>
+		    	<td><input type="text"></td>
+		    	<td><label class="text">Total:</label></td>
+		    	<td><input type="text"></td>
+		    	<td><button class="btn btn-sucess">Agregar</button></td>
+		    </tr>	
+        </thead>
+      </table>
+      <table width="95%">
+      	<tr style="background:#999;border-radius:5px;color:white; padding:4px;">
+	      <th>N°</th>
+	      <th>Descripción</th>
+	   	  <th>Total</th>
+		</tr>
+      </table>
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}" class="fondo-blanco">
+      LISTAR
+
+      </div>
+      <div ng-class="{'tab-pane active': SubactiveTab === 3, 'tab-pane' : SubactiveTab !== 3}" class="fondo-blanco">
+      <table width="100%">
+        <tr>
+          <td align="right"><label class="text">Fecha * :</label></td>
+          <td><input type="text"></td>
+          <td align="right"><label class="text">Caja/Banco * :</label></td>
+          <td><select><option>seleccione</option></select></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Sucursal * :</label></td>
+          <td><select><option>seleccione</option></select></td>
+          <td align="right"><label class="text">Recibo * :</label></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr><td><button class="btn btn-primary">Trabajadores</button></td></tr>
+      </table>
+
+      <div class="row">
+        <div class="col-md-12" style="background:#999;border-radius:5px;color:white; padding:4px;">
+          <div class="col-md-11">
+            <table width="100%">
+              <tbody>
+                <tr>
+                  <td align="left"><label class="text">Trabajador :</label></td>
+                  <td align="left"><input type="text"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="espacio"></div>
+        <table width="100%">
+          <thead style="background:#575;border-radius:5px;color:white;">
+            <th>N°</th>
+            <th>Trabajador</th>
+            <th>Sueldo Básico</th>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 'use strict';
 var app=angular.module('seedApp')
-.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','tc','rubro','ciudad','plandecuenta','ingresoproducto',
+.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','tc','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','cargo',
   //lista los productos
 
-  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto) {
+  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo) {
 	var dir="./public/img/";
   //PARAMETRO
     $scope.parametros = [];
@@ -17,6 +17,7 @@ var app=angular.module('seedApp')
     $scope.parametro=parametro;
     $scope.parametro.logotipo=parametro.logotipo;
     $scope.parametro.$update({'id_parametro':$scope.parametro.id_parametro}, function(response){});
+    console.log($scope.parametro.fecha_vencimiento);
   }
   //ACTIVIDAD ECONOMICA
     $scope.actividadEconomicas = [];
@@ -25,16 +26,14 @@ var app=angular.module('seedApp')
     });
     $scope.actividadEconomicas = {};
 
-  $scope.saveactividadEconomica = function(item) {
-    actividadEconomica.logotipo=img+actividadEconomica.logotipo;
-    console.log(actividadEconomica.logotipo);
+  $scope.saveactividadEconomica = function(item) {    
     actividadEconomica.save(item, function(response) {
     $scope.actividadEconomicas.push(response);
     });
   }
   $scope.deleteactividadEconomica = function (actividadEconomica,index) {
     actividadEconomica.$delete({"id_actividadEconomica": actividadEconomica.id_actividadEconomica}, function (success) {
-    $scope.actividadEconomica.splice(index, 1);
+    $scope.actividadEconomicas.splice($scope.actividadEconomicas.indexOf(actividadEconomica),1);
     });
   }
 //Sucursal
@@ -45,7 +44,6 @@ var app=angular.module('seedApp')
     $scope.sucursals = {};
 
   $scope.savesucursal = function(item) {
-    console.log("guarda");
     console.log(item);
     sucursal.save(item, function(response) {
     $scope.sucursals.push(response);
@@ -53,7 +51,7 @@ var app=angular.module('seedApp')
   }
   $scope.deletesucursal = function (sucursal,index) {
     sucursal.$delete({"id_sucursal": sucursal.id_sucursal}, function (success) {
-    $scope.sucursal.splice(index, 1);
+    $scope.sucursals.splice(index, 1);
     });
   }
 //USUARIO
@@ -121,46 +119,49 @@ $scope.deleterubro = function (rubro,index) {
   $scope.rubro.splice(index, 1);
   });
 }
-//CIUDAD
-  $scope.ciudads = [];
-  ciudad.get({}, function(response) {
-  $scope.ciudads = response;
-  });
-  $scope.ciudads = {};
-     
-    // date inicio
-$scope.today = function() {
+  //CIUDAD
+    $scope.ciudads = [];
+    ciudad.get({}, function(response) {
+    $scope.ciudads = response;
+    });
+    $scope.ciudads = {};
+       
+
+    $scope.today = function() {
     $scope.dt = new Date();
-};
-$scope.today();
-
-$scope.clear = function() {
-  $scope.dt = null;
-};
-  // Disable weekend selection
-$scope.disabled = function(date, mode) {
-  return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-};
-
-$scope.toggleMin = function() {
-  $scope.minDate = $scope.minDate ? null : new Date();
-};
-
-$scope.open1 = function() {
-  $scope.popup1.opened = true;
-};
-
-$scope.dateOptions = {
-  formatYear: 'yy',
-  startingDay: 1
-};
-
-  $scope.formats = ['yyyy/MM/dd'];
-  $scope.format = $scope.formats[0];
-  $scope.altInputFormats = ['yyyy/M!/d!'];
-  $scope.popup1 = {
-    opened: false
   };
+  $scope.today();
+
+  $scope.clear = function() {
+    $scope.dt = null;
+  };
+
+    // Disable weekend selection
+    $scope.disabled = function(date, mode) {
+      return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+    };
+
+    $scope.toggleMin = function() {
+      $scope.minDate = $scope.minDate ? null : new Date();
+    };
+
+    $scope.open1 = function() {
+      $scope.popup1.opened = true;
+      console.log(dt);
+    };
+
+    $scope.dateOptions = {
+      formatYear: 'yyyy',
+      startingDay: 1
+    };
+
+    $scope.formats = ['yyyy-MM-dd'];
+    $scope.format = $scope.formats[0];
+    $scope.altInputFormats = ['yyyy-M!-d!'];
+
+    $scope.popup1 = {
+      opened: false
+    };
     // date final
 
     // inicio tabpanel
@@ -193,7 +194,7 @@ $scope.dateOptions = {
 
     $scope.saveNoticia = function(item) {
     $scope.noticias = response;
-}
+  }
 
 
   //PLAN DE CUENTA
@@ -238,11 +239,84 @@ $scope.dateOptions = {
   }
 
 
+// RRHH TRABAJADOR
+    $scope.trabajadors = [];
+    trabajador.get({}, function(response) {
+    $scope.trabajadors = response;
+    });
+    $scope.trabajadors = {};
 
+    $scope.savetrabajador = function(item) {
+      console.log(item);
+      trabajador.save(item, function(response) {
+      $scope.trabajadors.push(response);
+      console.log(response);
+      });
+    }
+    $scope.deletetrabajador = function (trabajador,idx) {
+    trabajador.$delete({ "id_trabajador": trabajador.id_trabajador}, function (success) {
+    $scope.trabajadors.splice(idx, 1);
+    });
+    }
+    $scope.trabajador_modal = function(trabajador) {
+      console.log(trabajador);
+      $scope.trabajador =trabajador
+    }
+    $scope.trabajador_modifica = function(trabajador,id_trabajadors) {
+      $scope.trabajador.$update({'id_trabajadors':$scope.trabajador.id_trabajadors}, function(response){});
+    }
+    // RRHH departamento
+    $scope.departamentos = [];
+    departamento.get({}, function(response) {
+    $scope.departamentos = response;
+    });
+    $scope.departamentos = {};  
 
+  $scope.savedepartamento = function(item) {
+    departamento.save(item, function(response) {
+    $scope.departamentos.push(response);
+    });
+  }
+    //departamento
+    $scope.deletedepartamento = function (departamento,idx) {
+    departamento.$delete({ "id_departamento": departamento.id_departamento}, function (success) {
+    $scope.departamentos.splice(idx, 1);
+    });
+    }
 
+    $scope.departamento_modal = function(departamento) {
+      console.log(departamento);
+      $scope.departamento =departamento
+    }
+    $scope.departamento_modifica = function(departamento,id_departamento) {
+      $scope.departamento.$update({'id_departamento':$scope.departamento.id_departamento}, function(response){});
+    }
+  // RRHH cargo
+    $scope.cargos = [];
+    cargo.get({}, function(response) {
+    $scope.cargos = response;
+    });
+    $scope.cargos = {};  
 
+  $scope.savecargo = function(item) {
+    cargo.save(item, function(response) {
+    $scope.cargos.push(response);
+    });
+  }
+    //cargo
+    $scope.deletecargo = function (cargo,idx) {
+    cargo.$delete({ "id_cargo": cargo.id_cargo}, function (success) {
+    $scope.cargos.splice(idx, 1);
+    });
+    }
 
+    $scope.cargo_modal = function(cargo) {
+      $scope.cargo =cargo
+    }
+
+    $scope.cargo_modifica = function(cargo,id_cargo) {
+      $scope.cargo.$update({'id_cargo':$scope.cargo.id_cargo}, function(response){});
+    }
 
     //EVENTO
     $scope.deleteEvento = function (evento,idx) {

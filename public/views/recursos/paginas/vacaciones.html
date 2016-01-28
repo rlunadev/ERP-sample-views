@@ -1,1 +1,50 @@
-<h2>VACACIONES</h2>
+<div class="container" style="position:absolute"  ng-repeat="parametro in parametros | limitTo: 1">
+  <div ng-model="parametro">
+    <!-- <form class="form-signin">  -->
+    <h2>VACACIONES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
+      <button class="btn btn-danger">Cancelar</button>
+    </h2>
+    <ul class="nav nav-tabs">
+      <li ng-class="{'active' : SubactiveTab == 1}"><a href="" ng-click="setSubActiveTab(1)">Nuevo</a></li>
+      <li ng-class="{'active' : SubactiveTab == 2}"><a href="" ng-click="setSubActiveTab(2)">Reporte</a></li>
+    </ul>
+    <div class="tab-content">
+      <div ng-class="{'tab-pane active': SubactiveTab === 1, 'tab-pane' : SubactiveTab !== 1}" class="fondo-blanco">
+      <table width="95%">
+        <tr>
+          <td align="right"><label class="text">Nombre: </label></td>
+          <td><input type="text"></td>
+          <td align="right"><label class="text">Fecha de Inicio * :</label></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Cargo: </label></td>
+          <td><input type="text"></td>
+          <td align="right"><label class="text">Dias que le corresponden * :</label></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Modalidad: </label></td>
+          <td><select><option> Dias Pagados</option></select></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Observación: </label></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>Seleccione Dias asignados a vacación</td>
+        </tr>
+      </table>
+      <div class="row">
+      	<div class="container">
+      		<div class="col-md-6">CALENDARIO 1</div>
+      		<div class="col-md-6">CALENDARIO 2</div>
+      	</div>
+      </div>+
+     </div>
+     <div ng-class="{'tab-pane active': SubactiveTab === 2, 'tab-pane' : SubactiveTab !== 2}" class="fondo-blanco">
+      reporte
+     </div>
+  </div>
+</div>
