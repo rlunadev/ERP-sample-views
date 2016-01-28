@@ -24,7 +24,7 @@ CREATE TABLE `tbl_actividadeconomica` (
   `descripcion` varchar(255) DEFAULT NULL,
   `fecha` date DEFAULT '0000-00-00',
   PRIMARY KEY (`id_actividadEconomica`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_actividadeconomica
@@ -32,10 +32,45 @@ CREATE TABLE `tbl_actividadeconomica` (
 
 LOCK TABLES `tbl_actividadeconomica` WRITE;
 /*!40000 ALTER TABLE `tbl_actividadeconomica` DISABLE KEYS */;
-INSERT INTO `tbl_actividadeconomica` VALUES (1,'Empresa constructora de Edificios y casas','0000-00-00');
-INSERT INTO `tbl_actividadeconomica` VALUES (6,'335t','0000-00-00');
-INSERT INTO `tbl_actividadeconomica` VALUES (7,'335t','0000-00-00');
+INSERT INTO `tbl_actividadeconomica` VALUES (51,'ggh','0000-00-00');
+INSERT INTO `tbl_actividadeconomica` VALUES (56,'ffv','0000-00-00');
+INSERT INTO `tbl_actividadeconomica` VALUES (57,'ffv','0000-00-00');
+INSERT INTO `tbl_actividadeconomica` VALUES (58,'ffv','0000-00-00');
+INSERT INTO `tbl_actividadeconomica` VALUES (59,'ffv','0000-00-00');
+INSERT INTO `tbl_actividadeconomica` VALUES (60,'ffv','0000-00-00');
 /*!40000 ALTER TABLE `tbl_actividadeconomica` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
+# Source for table tbl_cargo
+#
+
+DROP TABLE IF EXISTS `tbl_cargo`;
+CREATE TABLE `tbl_cargo` (
+  `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_cargo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table tbl_cargo
+#
+
+LOCK TABLES `tbl_cargo` WRITE;
+/*!40000 ALTER TABLE `tbl_cargo` DISABLE KEYS */;
+INSERT INTO `tbl_cargo` VALUES (1,'gb','g');
+INSERT INTO `tbl_cargo` VALUES (3,'bb','g');
+INSERT INTO `tbl_cargo` VALUES (4,'bb','g');
+INSERT INTO `tbl_cargo` VALUES (5,'bb','g');
+INSERT INTO `tbl_cargo` VALUES (6,'bb','g');
+INSERT INTO `tbl_cargo` VALUES (7,'bb','g');
+INSERT INTO `tbl_cargo` VALUES (8,'bh','g');
+INSERT INTO `tbl_cargo` VALUES (9,'bh','g');
+INSERT INTO `tbl_cargo` VALUES (10,'bh','g');
+INSERT INTO `tbl_cargo` VALUES (11,'bh','g');
+INSERT INTO `tbl_cargo` VALUES (12,'bh','g');
+/*!40000 ALTER TABLE `tbl_cargo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 #
@@ -59,6 +94,44 @@ INSERT INTO `tbl_ciudad` VALUES (1,'La Paz');
 INSERT INTO `tbl_ciudad` VALUES (2,'Cochabamba');
 INSERT INTO `tbl_ciudad` VALUES (3,'Oruro');
 /*!40000 ALTER TABLE `tbl_ciudad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
+# Source for table tbl_departamento
+#
+
+DROP TABLE IF EXISTS `tbl_departamento`;
+CREATE TABLE `tbl_departamento` (
+  `id_departamento` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `descripcion` blob,
+  `id_cuenta_contable` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_departamento`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table tbl_departamento
+#
+
+LOCK TABLES `tbl_departamento` WRITE;
+/*!40000 ALTER TABLE `tbl_departamento` DISABLE KEYS */;
+INSERT INTO `tbl_departamento` VALUES (6,'uno',X'626C616C626C616C6261',10);
+INSERT INTO `tbl_departamento` VALUES (14,'g',X'67',7);
+INSERT INTO `tbl_departamento` VALUES (15,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (16,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (17,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (18,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (19,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (20,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (21,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (22,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (23,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (24,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (25,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (26,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (27,'h',X'6768',9);
+INSERT INTO `tbl_departamento` VALUES (28,'h',X'6768',9);
+/*!40000 ALTER TABLE `tbl_departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 #
@@ -93,7 +166,7 @@ CREATE TABLE `tbl_ingreso_producto` (
   `descripcion` varchar(255) DEFAULT NULL,
   `id_plandecuenta` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_ingresoproducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_ingreso_producto
@@ -104,6 +177,7 @@ LOCK TABLES `tbl_ingreso_producto` WRITE;
 INSERT INTO `tbl_ingreso_producto` VALUES (1,'Inventario de materiales',10);
 INSERT INTO `tbl_ingreso_producto` VALUES (2,'ds',15);
 INSERT INTO `tbl_ingreso_producto` VALUES (3,'df',30);
+INSERT INTO `tbl_ingreso_producto` VALUES (4,'f',NULL);
 /*!40000 ALTER TABLE `tbl_ingreso_producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +220,7 @@ CREATE TABLE `tbl_parametros` (
 
 LOCK TABLES `tbl_parametros` WRITE;
 /*!40000 ALTER TABLE `tbl_parametros` DISABLE KEYS */;
-INSERT INTO `tbl_parametros` VALUES (1,'lunascrids','4','ronald luna',12341,'rluna','info@lunascrid.c',6765572,'hola','Bolivia','3','www.lunscrid.com','2016-12-10',X'6E616E',1,0,0,0,0,0,0,740020701,'ronaldluna123@hotmail.com',59144401);
+INSERT INTO `tbl_parametros` VALUES (1,'lunascrids','1','ronald luna',12341,'rluna','info@lunascrid.com',6765572,'hola','Bolivia','3','www.lunscrid.com','2016-01-13',X'6E616E',1,0,0,0,0,0,0,74002070,'ronaldluna123@hotmail.com',59144401);
 /*!40000 ALTER TABLE `tbl_parametros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -530,7 +604,7 @@ CREATE TABLE `tbl_sucursal` (
   `fecha_limite_emision_manual` date DEFAULT NULL,
   `n_factura_final_manual` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_sucursal
@@ -538,8 +612,10 @@ CREATE TABLE `tbl_sucursal` (
 
 LOCK TABLES `tbl_sucursal` WRITE;
 /*!40000 ALTER TABLE `tbl_sucursal` DISABLE KEYS */;
-INSERT INTO `tbl_sucursal` VALUES (17,NULL,'56',5,X'736F706F6361636869',5,'Chuquisaca',5,5,'5',5,NULL,5,5,NULL,5);
-INSERT INTO `tbl_sucursal` VALUES (18,NULL,'56',5,X'736F706F6361636869',5,'Chuquisaca',5,5,'5',5,NULL,5,5,NULL,5);
+INSERT INTO `tbl_sucursal` VALUES (37,NULL,'General',2,X'32',2,'Santa Cruz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
+INSERT INTO `tbl_sucursal` VALUES (39,NULL,'sucursal 1',2,X'32',2,'Santa Cruz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
+INSERT INTO `tbl_sucursal` VALUES (40,NULL,'sucursal 2',2,X'32',2,'La Paz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
+INSERT INTO `tbl_sucursal` VALUES (41,NULL,'sucursal 3',2,X'32',2,'Oruro',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
 /*!40000 ALTER TABLE `tbl_sucursal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -572,6 +648,56 @@ INSERT INTO `tbl_tc` VALUES (1,6.91,6.95,6.93,6.94,6.95,6.96,2.3245,'2012-12-12'
 UNLOCK TABLES;
 
 #
+# Source for table tbl_trabajador
+#
+
+DROP TABLE IF EXISTS `tbl_trabajador`;
+CREATE TABLE `tbl_trabajador` (
+  `id_trabajador` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) DEFAULT NULL,
+  `apellidos` varchar(100) DEFAULT NULL,
+  `foto` blob,
+  `fecha_nac` date DEFAULT '0000-00-00',
+  `nacionalidad` varchar(100) DEFAULT NULL,
+  `ciudad_origen` varchar(100) DEFAULT NULL,
+  `ci_trabajador` int(11) DEFAULT NULL,
+  `id_ci` int(11) DEFAULT NULL,
+  `domicilio` varchar(255) DEFAULT NULL,
+  `email_personal` varchar(100) DEFAULT NULL,
+  `sexo` varchar(10) DEFAULT NULL,
+  `celular` int(11) DEFAULT NULL,
+  `telefono` int(11) DEFAULT NULL,
+  `n_libreta_militar` varchar(20) DEFAULT NULL,
+  `unidad` varchar(50) DEFAULT NULL,
+  `id_almacen` int(11) DEFAULT NULL,
+  `tipo_sangre` varchar(10) DEFAULT NULL,
+  `id_cajero` int(11) DEFAULT NULL,
+  `id_vendedor` int(11) DEFAULT NULL,
+  `id_licencia_conducir` int(11) DEFAULT NULL,
+  `domicilio_estado` int(11) DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  `id_educacion` int(11) DEFAULT NULL,
+  `id_habitos` int(11) DEFAULT NULL,
+  `id_datos_matrimonioales` int(11) DEFAULT NULL,
+  `id_datos_familiares` int(11) DEFAULT NULL,
+  `id_garante_personal` int(11) DEFAULT NULL,
+  `id_contrato_laboral` int(11) DEFAULT NULL,
+  `id_horario` int(11) DEFAULT NULL,
+  `id_documentos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_trabajador`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table tbl_trabajador
+#
+
+LOCK TABLES `tbl_trabajador` WRITE;
+/*!40000 ALTER TABLE `tbl_trabajador` DISABLE KEYS */;
+INSERT INTO `tbl_trabajador` VALUES (1,'ronald','luna',X'2E2F7075626C69632F696D672F726F6E616C642E6A7067','0000-00-00','Boliviana','La Paz',6765572,1,'el alto','ronaldwin79@hotmail.com','M',74002070,22222222,'1234567891','FAB',1,'OR+',1,1,1,1,'ninguna',1,1,1,1,1,1,1,1);
+/*!40000 ALTER TABLE `tbl_trabajador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
 # Source for table tbl_usuarios
 #
 
@@ -586,7 +712,7 @@ CREATE TABLE `tbl_usuarios` (
   `grupo_usuario` varchar(100) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_usuarios
@@ -595,6 +721,12 @@ CREATE TABLE `tbl_usuarios` (
 LOCK TABLES `tbl_usuarios` WRITE;
 /*!40000 ALTER TABLE `tbl_usuarios` DISABLE KEYS */;
 INSERT INTO `tbl_usuarios` VALUES (1,'rluna','123',NULL,'ronald luna','general','admin','2012-12-12');
+INSERT INTO `tbl_usuarios` VALUES (2,'hn','n',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_usuarios` VALUES (3,'hn','n',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_usuarios` VALUES (4,'hn','n',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_usuarios` VALUES (5,'hn','n',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_usuarios` VALUES (6,'hn','n',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_usuarios` VALUES (7,'hn','n',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 

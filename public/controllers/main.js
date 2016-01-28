@@ -15,6 +15,7 @@ var app=angular.module('seedApp')
     // Modifica  Parametro
   $scope.parametro_modifica = function(parametro,id_parametro) {
     $scope.parametro=parametro;
+    $scope.parametro.fecha_vencimiento=$filter('date')(parametro.fecha_vencimiento,'yyyy-MM-dd');
     $scope.parametro.logotipo=parametro.logotipo;
     $scope.parametro.$update({'id_parametro':$scope.parametro.id_parametro}, function(response){});
     console.log($scope.parametro.fecha_vencimiento);
@@ -127,15 +128,7 @@ $scope.deleterubro = function (rubro,index) {
     $scope.ciudads = {};
        
 
-    $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-
-  $scope.clear = function() {
-    $scope.dt = null;
-  };
-
+    
     // Disable weekend selection
     $scope.disabled = function(date, mode) {
       return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
@@ -147,7 +140,6 @@ $scope.deleterubro = function (rubro,index) {
 
     $scope.open1 = function() {
       $scope.popup1.opened = true;
-      console.log(dt);
     };
 
     $scope.dateOptions = {

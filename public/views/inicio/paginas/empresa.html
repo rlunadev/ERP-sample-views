@@ -79,13 +79,7 @@
               <td align="right"><label class="text" >Fecha Vencimiento :</label> </td>
               <td colspan="3">
                 <p class="input-group">
-                <input type="text" 
-                value="{{parametro.fecha_vencimiento}}"
-                class="form-control" uib-datepicker-popup="{{format}}" ng-model="parametro.fecha_vencimiento" is-open="popup1.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                  </span>
-                </p>
+                <input type="date" value="{{parametro.fecha_vencimiento}}" ng-model="parametro.fecha_vencimiento">
               </td>
 
             </tr>
