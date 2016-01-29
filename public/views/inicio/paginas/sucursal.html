@@ -18,19 +18,20 @@
         </thead>
         <tbody>
           <tr>
-            <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" required/> </td>
-            <td align="right">N° de Sucursal :</td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"required/> </td>
+            <td align="right"><label class="text">Nombre Comercial * :</label></td><td><input type="text" autofocus class="" ng-model="sucursal.nombre_comercial" /> </td>
+            <td align="right"><label class="text">N° de Sucursal :</label></td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"/> </td>
           </tr>
           <tr>
-            <td align="right">Dirección : </td><td> <input type="text" class=""  ng-model="sucursal.direccion"required/> </td>
-            <td align="right">Teléfono : </td><td><input type="text" class="" ng-model="sucursal.telefono" required/> </td>
+            <td align="right"><label class="text">Dirección :</label> </td><td> <input type="text" class=""  ng-model="sucursal.direccion"/> </td>
+            <td align="right"><label class="text">Teléfono :</label> </td><td><input type="text" class="" ng-model="sucursal.telefono" /> </td>
           </tr>
           <tr>
-            <td align="right">Ciudad : 
+            <td align="right"><label class="text">Ciudad :</label> 
             </td>
             <td>
               <select ng-model="sucursal.ciudad" name="ciudad" id="ciudad" >
-                <option value="servicio" selected="selected" >Beni</option>
+                <option value="">-- Seleccione --</option>
+                <option value="Beni" selected="selected" >Beni</option>
                 <option value="Chuquisaca">Chuquisaca</option>
                 <option value="Cochabamba">Cochabamba</option>
                 <option value="La Paz">La Paz</option>
@@ -44,32 +45,37 @@
           </tr>
           <!-- factura computarizada -->
           <tr>
-            <td align="Left">Factura Computarizada :</td>
+            <td align="Left"><label class="text">Factura Computarizada :</label></td>
           </tr>
           <tr>
-            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" required/> </td>
-            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" required/> </td>
+            <td align="right"><label class="text">N° de Autorización :</label> </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" /> </td>
+            <td align="right"><label class="text">N° de Factura Inicial :</label> </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" /> </td>
           </tr>
           <tr>
-            <td align="right">Llave de Dosificación : </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion" required/> </td>
-            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final" required/> </td>
+            <td align="right"><label class="text">Llave de Dosificación :</label> </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion" /> </td>
+            <td align="right"><label class="text">N° de Factura Final :</label> </td><td><input type="text" class="" ng-model="sucursal.n_factura_final" /> </td>
           </tr>
           <tr>
             <td align="right"></td><td></td>
-            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision" /> 
+            <td align="right"><label class="text">Fecha Limite de Emisión :</label></td>
+            <td>
+            <input type="date" ng-model="sucursal.fecha_limite_emision"/>
             </td>
           </tr>
           <!-- factura manual -->
           <tr>
-            <td align="Left">Factura Manual :</td>
+            <td align="Left"><label class="text">Factura Manual :</label></td>
           </tr>
           <tr>
-            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion_manual" required/> </td>
-            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" required/> </td>
+            <td align="right"><label class="text">N° de Autorización : </label></td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion_manual" /> </td>
+            <td align="right"><label class="text">N° de Factura Inicial :</label> </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" /> </td>
           </tr>
           <tr>
-            <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision_manual" /> 
-            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" required/> </td>
+            <td align="right"><label class="text">Fecha Limite de Emisión : </label></td><td>
+           <!--  <input type="date" 
+            value="{{Date.now() | date:'yyyy-MM-dd'}}" ng-model="sucursal.fecha_limite_emision_manual"> -->
+
+            <td align="right"><label class="text">N° de Factura Final : </label></td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" /> </td>
           </tr>
           <tr>
             <td align="right"></td><td></td>
@@ -135,12 +141,12 @@
         </thead>
         <tbody>
           <tr>
-            <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" required/> </td>
-            <td align="right">N° de Sucursal :</td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"required/> </td>
+            <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" /> </td>
+            <td align="right">N° de Sucursal :</td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"/> </td>
           </tr>
           <tr>
-            <td align="right">Dirección : </td><td> <input type="text" class=""  ng-model="sucursal.direccion"required/> </td>
-            <td align="right">Teléfono : </td><td><input type="text" class="" ng-model="sucursal.telefono" required/> </td>
+            <td align="right">Dirección : </td><td> <input type="text" class=""  ng-model="sucursal.direccion"/> </td>
+            <td align="right">Teléfono : </td><td><input type="text" class="" ng-model="sucursal.telefono" /> </td>
           </tr>
           <tr>
             <td align="right">Ciudad : 
@@ -164,12 +170,12 @@
             <td align="Left">Factura Computarizada :</td>
           </tr>
           <tr>
-            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" required/> </td>
-            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" required/> </td>
+            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" /> </td>
+            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" /> </td>
           </tr>
           <tr>
-            <td align="right">Llave de Dosificación : </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion" required/> </td>
-            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final" required/> </td>
+            <td align="right">Llave de Dosificación : </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion" /> </td>
+            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final" /> </td>
           </tr>
           <tr>
             <td align="right"></td><td></td>
@@ -181,12 +187,12 @@
             <td align="Left">Factura Manual :</td>
           </tr>
           <tr>
-            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion_manual" required/> </td>
-            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" required/> </td>
+            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion_manual" /> </td>
+            <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" /> </td>
           </tr>
           <tr>
             <td align="right">Fecha Limite de Emisión : </td><td><input type="text  " class="" ng-model="sucursal.fecha_limite_emision_manual" /> 
-            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" required/> </td>
+            <td align="right">N° de Factura Final : </td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" /> </td>
           </tr>
           <tr>
             <td align="right"></td><td></td>

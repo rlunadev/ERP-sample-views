@@ -43,9 +43,13 @@ var app=angular.module('seedApp')
     $scope.sucursals = response;
     });
     $scope.sucursals = {};
+ 
+
 
   $scope.savesucursal = function(item) {
     console.log(item);
+    item.fecha_limite_emision = $filter('date')(item.fecha_limite_emision,'yyyy-MM-dd');
+    console.log($scope.sucursal.fecha_limite_emision);
     sucursal.save(item, function(response) {
     $scope.sucursals.push(response);
     });
