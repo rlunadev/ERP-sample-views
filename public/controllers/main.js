@@ -43,12 +43,12 @@ var app=angular.module('seedApp')
     $scope.sucursals = response;
     });
     $scope.sucursals = {};
- 
+ //
 
 
   $scope.savesucursal = function(item) {
-    console.log(item);
     item.fecha_limite_emision = $filter('date')(item.fecha_limite_emision,'yyyy-MM-dd');
+    item.fecha_limite_emision_manual = $filter('date')(item.fecha_limite_emision_manual,'yyyy-MM-dd');
     console.log($scope.sucursal.fecha_limite_emision);
     sucursal.save(item, function(response) {
     $scope.sucursals.push(response);
@@ -59,6 +59,15 @@ var app=angular.module('seedApp')
     $scope.sucursals.splice(index, 1);
     });
   }
+  $scope.sucursal_modal = function(sucursal) {
+    console.log(sucursal);
+    $scope.sucursal =sucursal
+  }
+  $scope.sucursal_modifica = function(sucursal,id_sucursal) {
+    console.log("modif");
+    $scope.sucursal.$update({'id_sucursal':$scope.sucursal.id_sucursal}, function(response){});
+  }
+
 //USUARIO
     $scope.usuarios = [];
     usuario.get({}, function(response) {
@@ -67,15 +76,14 @@ var app=angular.module('seedApp')
     $scope.usuarios = {};
 
   $scope.saveusuario = function(item) {
-    console.log("guarda");
-    console.log(item);
+    item.fecha_creacion = $filter('date')(new Date(),'yyyy-MM-dd');
     usuario.save(item, function(response) {
     $scope.usuarios.push(response);
     });
   }
   $scope.deleteusuario = function (usuario,index) {
     usuario.$delete({"id_usuario": usuario.id_usuario}, function (success) {
-    $scope.usuario.splice(index, 1);
+    $scope.usuarios.splice(index, 1);
     });
   }
 //Tasa De Cambio

@@ -18,18 +18,18 @@
         </thead>
         <tbody>
           <tr>
-            <td align="right"><label class="text">Nombre Comercial * :</label></td><td><input type="text" autofocus class="" ng-model="sucursal.nombre_comercial" /> </td>
-            <td align="right"><label class="text">N° de Sucursal :</label></td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"/> </td>
+            <td align="right"><label class="text">Nombre Comercial * :</label></td><td><input type="text" autofocus class="" ng-model="sucursal.nombre_comercial" required /> </td>
+            <td align="right"><label class="text">N° de Sucursal :</label></td><td> <input type="number" class="" ng-model="sucursal.n_sucursal" required /> </td>
           </tr>
           <tr>
-            <td align="right"><label class="text">Dirección :</label> </td><td> <input type="text" class=""  ng-model="sucursal.direccion"/> </td>
-            <td align="right"><label class="text">Teléfono :</label> </td><td><input type="text" class="" ng-model="sucursal.telefono" /> </td>
+            <td align="right"><label class="text">Dirección :</label> </td><td> <input type="text" class=""  ng-model="sucursal.direccion" required /> </td>
+            <td align="right"><label class="text">Teléfono :</label> </td><td><input type="number" class="" ng-model="sucursal.telefono" required /> </td>
           </tr>
           <tr>
             <td align="right"><label class="text">Ciudad :</label> 
             </td>
             <td>
-              <select ng-model="sucursal.ciudad" name="ciudad" id="ciudad" >
+              <select ng-model="sucursal.ciudad" name="ciudad" id="ciudad" required >
                 <option value="">-- Seleccione --</option>
                 <option value="Beni" selected="selected" >Beni</option>
                 <option value="Chuquisaca">Chuquisaca</option>
@@ -48,12 +48,12 @@
             <td align="Left"><label class="text">Factura Computarizada :</label></td>
           </tr>
           <tr>
-            <td align="right"><label class="text">N° de Autorización :</label> </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" /> </td>
-            <td align="right"><label class="text">N° de Factura Inicial :</label> </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" /> </td>
+            <td align="right"><label class="text">N° de Autorización :</label> </td><td> <input type="number" class="" ng-model="sucursal.n_autorizacion" /> </td>
+            <td align="right"><label class="text">N° de Factura Inicial :</label> </td><td><input type="number" class="" ng-model="sucursal.n_factura_inicial" /> </td>
           </tr>
           <tr>
-            <td align="right"><label class="text">Llave de Dosificación :</label> </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion" /> </td>
-            <td align="right"><label class="text">N° de Factura Final :</label> </td><td><input type="text" class="" ng-model="sucursal.n_factura_final" /> </td>
+            <td align="right"><label class="text">Llave de Dosificación :</label> </td><td> <input type="text" class="" ng-model="sucursal.llave_dosificacion"/> </td>
+            <td align="right"><label class="text">N° de Factura Final :</label> </td><td><input type="number" class="" ng-model="sucursal.n_factura_final" /> </td>
           </tr>
           <tr>
             <td align="right"></td><td></td>
@@ -67,15 +67,13 @@
             <td align="Left"><label class="text">Factura Manual :</label></td>
           </tr>
           <tr>
-            <td align="right"><label class="text">N° de Autorización : </label></td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion_manual" /> </td>
-            <td align="right"><label class="text">N° de Factura Inicial :</label> </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial_manual" /> </td>
+            <td align="right"><label class="text">N° de Autorización : </label></td><td> <input type="number" class="" ng-model="sucursal.n_autorizacion_manual" /> </td>
+            <td align="right"><label class="text">N° de Factura Inicial :</label> </td><td><input type="number" class="" ng-model="sucursal.n_factura_inicial_manual" /> </td>
           </tr>
           <tr>
             <td align="right"><label class="text">Fecha Limite de Emisión : </label></td><td>
-           <!--  <input type="date" 
-            value="{{Date.now() | date:'yyyy-MM-dd'}}" ng-model="sucursal.fecha_limite_emision_manual"> -->
-
-            <td align="right"><label class="text">N° de Factura Final : </label></td><td><input type="text" class="" ng-model="sucursal.n_factura_final_manual" /> </td>
+           <input type="date" ng-model="sucursal.fecha_limite_emision_manual"/>
+            <td align="right"><label class="text">N° de Factura Final : </label></td><td><input type="number" class="" ng-model="sucursal.n_factura_final_manual" /> </td>
           </tr>
           <tr>
             <td align="right"></td><td></td>
@@ -89,11 +87,7 @@
       <!-- LISTAR -->
       <br />
       <div class="col-md-12">
-       <select name="" id="">
-        <option value="numero" selected="selected">N°</option>
-        <option value="nombre">Nombre</option>
-      </select>				
-      <input type="text" placeholder="Buscar">
+      Busqueda : <input type="text" placeholder="Buscar" ng-model="buscador" size="30">
     </div>
 
     <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
@@ -107,16 +101,17 @@
         <th></th>
       </thead>
       <tbody>
-      <tr ng-repeat="sucursal in sucursals">
+      <!-- <tr ng-repeat="sucursal in sucursals | filter:{ nombre_comercial:''}"> -->
+      <tr ng-repeat="sucursal in sucursals | filter:buscador">
+       
         <td> {{sucursal.id_sucursal}} </td>
         <td> {{sucursal.nombre_comercial}} </td>
         <td> {{sucursal.direccion}} </td>
         <td> {{sucursal.telefono}} </td>
         <td> {{sucursal.ciudad}} </td>
-        <td ng-click="evento_modal(evento)" data-toggle="modal" data-target="#myModal">
+        <td ng-click="sucursal_modal(sucursal)" data-toggle="modal" data-target="#myModal">
         <span class="glyphicon glyphicon-edit" ></span> 
         </td>
-
         <td ng-click="deletesucursal(sucursal,$index)" > <span class="glyphicon glyphicon-trash" ></span> </td>
       </tr>
       </tbody>
@@ -129,8 +124,8 @@
 <!-- MODAL -->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog">
-    <div class="modal-content"ng-model="evento">
-    <form class="form-horizontal" ng-submit="evento_modifica(evento,evento.id_eventos)">
+    <div class="modal-content"ng-model="sucursal">
+    <form class="form-horizontal" ng-submit="sucursal_modifica(sucursal,sucursal.id_sucursal)">
      <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Editar</h4>
@@ -141,7 +136,7 @@
         </thead>
         <tbody>
           <tr>
-            <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" /> </td>
+            <td align="right">Nombre Comercial * :</td><td><input type="text" class="" ng-model="sucursal.nombre_comercial" value="{{sucursal.nombre_comercial}}"  /> </td>
             <td align="right">N° de Sucursal :</td><td> <input type="text" class="" ng-model="sucursal.n_sucursal"/> </td>
           </tr>
           <tr>
@@ -170,7 +165,7 @@
             <td align="Left">Factura Computarizada :</td>
           </tr>
           <tr>
-            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" /> </td>
+            <td align="right">N° de Autorización : </td><td> <input type="text" class="" ng-model="sucursal.n_autorizacion" value="{{sucursal.n_autorizacion}}" /> </td>
             <td align="right">N° de Factura Inicial : </td><td><input type="text" class="" ng-model="sucursal.n_factura_inicial" /> </td>
           </tr>
           <tr>
@@ -202,8 +197,8 @@
       </table>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-success">Guardar Cambios</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      <button type="submit" class="btn btn-success" >Guardar Cambios</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
     </div>
     </form>
     </div>

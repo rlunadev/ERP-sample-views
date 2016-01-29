@@ -23,10 +23,9 @@
               <td align="right"><label type="text">Login * :</label></td><td><input type="text" class=""  ng-model="usuario.login"required/> </td>
               <td align="right"><label type="text">Trabajador :</label></td>
               <td> 
-                <select name="rubro" id="rubro" required>
-                  <option value="servicio" selected="selected">-- Seleccione opción -- </option>
-                  <option value="Chuquisaca">Chuquisaca</option>
-                  <option value="Cochabamba">Cochabamba</option>
+                <select ng-model="usuario.id_nombre" required>
+                <option value="">-- Seleccione --</option>
+                <option ng-repeat="trabajador in trabajadors" value="{{trabajador.id_trabajador}}"  title="" >{{trabajador.nombres}}{{trabajador.apellidos}}</option>
                 </select>
               </td>
             </tr>
@@ -43,6 +42,13 @@
 	                  <option value="Cochabamba">Cochabamba</option>
 	                </select>
             	</td>
+              <td align="right"><label type="text">Sucursal : </label></td>
+              <td>
+                 <select ng-model="usuario.id_sucursal" required>
+                <option value="">-- Seleccione --</option>
+                <option ng-repeat="sucursal in sucursals" value="{{sucursal.id_sucursal}}"  title="" >{{sucursal.nombre_comercial}}</option>
+                </select>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -52,11 +58,7 @@
       <!-- LISTAR -->
       <br />
       <div class="col-md-12">
-      	<select name="" id="">
-          <option value="numerp" selected="selected">N°</option>
-          <option value="nombre">Nombre</option>
-        </select>				
-      	<input type="text" placeholder="Buscar">
+      	Buscar: <input type="text" placeholder="Buscar" ng-model="buscador" size="30">
       </div>
 
         <table width="100%" border="0" align="center" cellpadding="4" cellspacing="2" class="table-responsive">
@@ -71,19 +73,23 @@
           <th></th>
           </thead>
           <tbody>
-          <tr ng-repeat="usuario in usuarios">
-            <td> {{usuario.id_usuario}} </td>
-            <td> {{usuario.nombres}} </td>
-            <td> {{usuario.login}} </td>
-            <td> {{usuario.sucursal}} </td>
-            <td> {{usuario.grupo_usuario}} </td>
-            <td> {{usuario.fecha_creacion}} </td>
-            <td ng-click="evento_modal(evento)" data-toggle="modal" data-target="#myModal">
-              <span class="glyphicon glyphicon-edit" ></span> 
-            </td>
-            <td ng-click="deleteusuario(usuario,$index)" > <span class="glyphicon glyphicon-trash" >
+          
+          <tr ng-repeat-start="usuario in usuarios | filter:buscador">
+              <td> {{usuario.id_usuario}} </td>
+              <td ng-repeat="trabajador in trabajadors"
+                  ng-selected ="trabajador.id_trabajador == usuario.id_nombre"> 
+              {{trabajador.nombres}} </td>
+              <td> {{usuario.login}} </td>
+              <td> {{usuario.id_sucursal}} </td>
+              <td> {{usuario.grupo_usuario}} </td>
+              <td> {{usuario.fecha_creacion}} </td>
+              <td ng-click="evento_modal(evento)" data-toggle="modal" data-target=" #myModal">
+                <span class="glyphicon glyphicon-edit"></span> 
+              </td>
+              <td ng-click="deleteusuario(usuario,$index)"> <span class="glyphicon glyphicon-trash" >
               </span> </td>
           </tr>
+          <tr ng-repeat-end></tr>
           </tbody>
         </table>
       </div>
