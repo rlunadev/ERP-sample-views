@@ -24,7 +24,7 @@ CREATE TABLE `tbl_actividadeconomica` (
   `descripcion` varchar(255) DEFAULT NULL,
   `fecha` date DEFAULT '0000-00-00',
   PRIMARY KEY (`id_actividadEconomica`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_actividadeconomica
@@ -33,8 +33,6 @@ CREATE TABLE `tbl_actividadeconomica` (
 LOCK TABLES `tbl_actividadeconomica` WRITE;
 /*!40000 ALTER TABLE `tbl_actividadeconomica` DISABLE KEYS */;
 INSERT INTO `tbl_actividadeconomica` VALUES (51,'ggh','0000-00-00');
-INSERT INTO `tbl_actividadeconomica` VALUES (56,'ffv','0000-00-00');
-INSERT INTO `tbl_actividadeconomica` VALUES (57,'ffv','0000-00-00');
 INSERT INTO `tbl_actividadeconomica` VALUES (58,'ffv','0000-00-00');
 INSERT INTO `tbl_actividadeconomica` VALUES (59,'ffv','0000-00-00');
 INSERT INTO `tbl_actividadeconomica` VALUES (60,'ffv','0000-00-00');
@@ -51,7 +49,7 @@ CREATE TABLE `tbl_cargo` (
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_cargo
@@ -107,7 +105,7 @@ CREATE TABLE `tbl_departamento` (
   `descripcion` blob,
   `id_cuenta_contable` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_departamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_departamento
@@ -220,7 +218,7 @@ CREATE TABLE `tbl_parametros` (
 
 LOCK TABLES `tbl_parametros` WRITE;
 /*!40000 ALTER TABLE `tbl_parametros` DISABLE KEYS */;
-INSERT INTO `tbl_parametros` VALUES (1,'lunascrids','1','ronald luna',12341,'rluna','info@lunascrid.com',6765572,'hola','Bolivia','3','www.lunscrid.com','2016-01-13',X'6E616E',1,0,0,0,0,0,0,74002070,'ronaldluna123@hotmail.com',59144401);
+INSERT INTO `tbl_parametros` VALUES (1,'lunascript','4','ronald luna',12341,'rluna','info@lunascrid.com',6765572,'hola','Bolivia','3','www.lunacript.com','2016-01-12',X'6E696E67756E61',1,0,0,0,0,0,0,74002070,'ronaldluna123@hotmail.com',59144401);
 /*!40000 ALTER TABLE `tbl_parametros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -604,7 +602,7 @@ CREATE TABLE `tbl_sucursal` (
   `fecha_limite_emision_manual` date DEFAULT NULL,
   `n_factura_final_manual` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_sucursal
@@ -612,10 +610,11 @@ CREATE TABLE `tbl_sucursal` (
 
 LOCK TABLES `tbl_sucursal` WRITE;
 /*!40000 ALTER TABLE `tbl_sucursal` DISABLE KEYS */;
-INSERT INTO `tbl_sucursal` VALUES (37,NULL,'General',2,X'32',2,'Santa Cruz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
-INSERT INTO `tbl_sucursal` VALUES (39,NULL,'sucursal 1',2,X'32',2,'Santa Cruz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
+INSERT INTO `tbl_sucursal` VALUES (37,NULL,'Gen',2,X'32',33,'Santa Cruz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
 INSERT INTO `tbl_sucursal` VALUES (40,NULL,'sucursal 2',2,X'32',2,'La Paz',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
 INSERT INTO `tbl_sucursal` VALUES (41,NULL,'sucursal 3',2,X'32',2,'Oruro',2,2,'2',2,'2012-12-12',2,2,'2012-12-12',2);
+INSERT INTO `tbl_sucursal` VALUES (109,NULL,'3',3,X'33',3,'Cochabamba',3,3,'3',3,'2016-01-06',3,3,NULL,3);
+INSERT INTO `tbl_sucursal` VALUES (118,NULL,'uno',1,X'65',435634543,'Chuquisaca',NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tbl_sucursal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -685,7 +684,7 @@ CREATE TABLE `tbl_trabajador` (
   `id_horario` int(11) DEFAULT NULL,
   `id_documentos` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_trabajador`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_trabajador
@@ -693,7 +692,8 @@ CREATE TABLE `tbl_trabajador` (
 
 LOCK TABLES `tbl_trabajador` WRITE;
 /*!40000 ALTER TABLE `tbl_trabajador` DISABLE KEYS */;
-INSERT INTO `tbl_trabajador` VALUES (1,'ronald','luna',X'2E2F7075626C69632F696D672F726F6E616C642E6A7067','0000-00-00','Boliviana','La Paz',6765572,1,'el alto','ronaldwin79@hotmail.com','M',74002070,22222222,'1234567891','FAB',1,'OR+',1,1,1,1,'ninguna',1,1,1,1,1,1,1,1);
+INSERT INTO `tbl_trabajador` VALUES (1,'ronaldddd','luna',X'2E2F7075626C69632F696D672F726F6E616C642E6A7067','0000-00-00','Boliviana','La Paz',6765572,1,'el alto','ronaldwin79@hotmail.com','M',74002070,22222222,'1234567891','FAB',1,'OR+',1,1,1,1,'ninguna',1,1,1,1,1,1,1,1);
+INSERT INTO `tbl_trabajador` VALUES (15,'reyna','eeee',NULL,'2012-12-12','121','1',1,NULL,'1','1',NULL,1,1,'1','1',NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tbl_trabajador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -707,12 +707,12 @@ CREATE TABLE `tbl_usuarios` (
   `login` varchar(100) DEFAULT NULL,
   `password` varchar(70) DEFAULT NULL,
   `logotipo` blob,
-  `nombres` varchar(255) DEFAULT NULL,
-  `sucursal` varchar(100) DEFAULT NULL,
+  `id_nombre` int(11) DEFAULT NULL,
+  `id_sucursal` int(11) DEFAULT NULL,
   `grupo_usuario` varchar(100) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_usuarios
@@ -720,13 +720,17 @@ CREATE TABLE `tbl_usuarios` (
 
 LOCK TABLES `tbl_usuarios` WRITE;
 /*!40000 ALTER TABLE `tbl_usuarios` DISABLE KEYS */;
-INSERT INTO `tbl_usuarios` VALUES (1,'rluna','123',NULL,'ronald luna','general','admin','2012-12-12');
-INSERT INTO `tbl_usuarios` VALUES (2,'hn','n',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `tbl_usuarios` VALUES (3,'hn','n',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `tbl_usuarios` VALUES (4,'hn','n',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `tbl_usuarios` VALUES (5,'hn','n',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `tbl_usuarios` VALUES (6,'hn','n',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `tbl_usuarios` VALUES (7,'hn','n',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_usuarios` VALUES (45,'r','r',X'2E2F7075626C69632F696D672F617661746172352E706E67',1,40,'R.R.H.H.','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (60,'f','4',X'2E2F7075626C69632F696D672F617661746172352E706E67',1,37,'R.R.H.H.','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (61,'f','4',X'2E2F7075626C69632F696D672F617661746172352E706E67',1,37,'R.R.H.H.','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (62,'f','4',X'2E2F7075626C69632F696D672F617661746172352E706E67',1,37,'R.R.H.H.','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (63,'ddd','dddd',X'2E2F7075626C69632F696D672F342E6A7067',1,37,'Inventario','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (64,'fg','rrr',X'2E2F7075626C69632F696D672F617661746172352E706E67',15,40,'Inventario','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (66,'df','fg',X'2E2F7075626C69632F696D672F342E6A7067',1,40,'Inventario','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (67,'f','e',X'2E2F7075626C69632F696D672F617661746172352E706E67',1,37,'Administrador','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (68,'f','f',X'2E2F7075626C69632F696D672F322E6A7067',1,40,'Inventario','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (69,'erg','fg',X'2E2F7075626C69632F696D672F617661746172352E706E67',1,109,'Administrador','2016-01-29');
+INSERT INTO `tbl_usuarios` VALUES (70,'g','b',X'2E2F7075626C69632F696D672F342E6A7067',1,40,'Inventario','2016-01-29');
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
