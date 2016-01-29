@@ -1,9 +1,9 @@
 'use strict';
 var app=angular.module('seedApp')
-.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','tc','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','cargo',
+.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','tc','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','cargo','upload',
   //lista los productos
 
-  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo) {
+  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo,upload) {
 	var dir="./public/img/";
   //PARAMETRO
     $scope.parametros = [];
@@ -68,7 +68,7 @@ var app=angular.module('seedApp')
     $scope.sucursal.$update({'id_sucursal':$scope.sucursal.id_sucursal}, function(response){});
   }
 
-//USUARIO
+  //USUARIO
     $scope.usuarios = [];
     usuario.get({}, function(response) {
     $scope.usuarios = response;
@@ -76,9 +76,15 @@ var app=angular.module('seedApp')
     $scope.usuarios = {};
 
   $scope.saveusuario = function(item) {
+    var name = $scope.name;
+    var file = $scope.file;
+    upload.saveImage(file).then(function(res)
+    {})
+    item.logotipo=dir+file.name;
     item.fecha_creacion = $filter('date')(new Date(),'yyyy-MM-dd');
     usuario.save(item, function(response) {
     $scope.usuarios.push(response);
+    $scope.usuario={};
     });
   }
   $scope.deleteusuario = function (usuario,index) {
@@ -86,52 +92,70 @@ var app=angular.module('seedApp')
     $scope.usuarios.splice(index, 1);
     });
   }
-//Tasa De Cambio
+  $scope.usuario_modal = function(usuario) {
+    $scope.usuario =usuario
+  }
+  $scope.usuario_modifica = function(usuario,id_usuario) {
+    //console.log("modifica");
+    try {
+      var name = $scope.name;
+      var file = $scope.file;
+      upload.saveImage(file).then(function(res)
+      {})
+      usuario.logotipo=dir+file.name;
+      $scope.usuario.$update({'id_usuario':$scope.usuario.id_usuario}, function(response){});
+    }
+    catch(e) {
+      console.log("ERROR");
+      $scope.usuario.$update({'id_usuario':$scope.usuario.id_usuario}, function(response){});
+    } 
+  }
+  //Tasa De Cambio
   $scope.tcs = [];
   tc.get({}, function(response) {
   $scope.tcs = response;
   });
   $scope.tcs = {};
 
-$scope.tc_modifica = function(tc,id_tc) {
+  $scope.tc_modifica = function(tc,id_tc) {
     $scope.tc=tc;
     $scope.tc.$update({'id_tc':$scope.tc.id_tc}, function(response){});
   }
 
-$scope.savetc = function(item) {
-  console.log("guarda");
-  console.log(item);
-  tc.save(item, function(response) {
-  $scope.tcs.push(response);
-  });
-}
-$scope.deletetc = function (tc,index) {
-  tc.$delete({"id_tc": tc.id_tc}, function (success) {
-  $scope.tc.splice(index, 1);
-  });
-}
-//RUBRO
+  $scope.savetc = function(item) {
+    console.log("guarda");
+    console.log(item);
+    tc.save(item, function(response) {
+    $scope.tcs.push(response);
+    });
+  }
+  $scope.deletetc = function (tc,index) {
+    tc.$delete({"id_tc": tc.id_tc}, function (success) {
+    $scope.tc.splice(index, 1);
+    });
+  }
+  //RUBRO
   $scope.rubros = [];
   rubro.get({}, function(response) {
-  $scope.rubros = response;
+    $scope.rubros = response;
   });
   $scope.rubros = {};
 
-$scope.rubro_modifica = function(rubro,id_rubro) {
+  $scope.rubro_modifica = function(rubro,id_rubro) {
     $scope.rubro=rubro;
     $scope.rubro.$update({'id_rubro':$scope.rubro.id_rubro}, function(response){});
-}
+  }
 
-$scope.saverubro = function(item) {
-  rubro.save(item, function(response) {
-  $scope.rubros.push(response);
-  });
-}
-$scope.deleterubro = function (rubro,index) {
-  rubro.$delete({"id_rubro": rubro.id_rubro}, function (success) {
-  $scope.rubro.splice(index, 1);
-  });
-}
+  $scope.saverubro = function(item) {
+    rubro.save(item, function(response) {
+    $scope.rubros.push(response);
+    });
+  }
+  $scope.deleterubro = function (rubro,index) {
+    rubro.$delete({"id_rubro": rubro.id_rubro}, function (success) {
+    $scope.rubro.splice(index, 1);
+    });
+  }
   //CIUDAD
     $scope.ciudads = [];
     ciudad.get({}, function(response) {
@@ -322,43 +346,8 @@ $scope.deleterubro = function (rubro,index) {
       $scope.cargo.$update({'id_cargo':$scope.cargo.id_cargo}, function(response){});
     }
 
-    //EVENTO
-    $scope.deleteEvento = function (evento,idx) {
-    console.log(evento);
-    evento.$delete({ "id_eventos": evento.id_eventos}, function (success) {
-    console.log(success);
-    $scope.eventos.splice(idx, 1);
-    });
-	  }
-	 $scope.saveEvento = function(item) {
-      	
-    var name = $scope.name;
-		var file = $scope.file;
-		upload.saveImage(file).then(function(res)
-		{})
-		item.imagen=dir+file.name;
-		console.log(item.imagen);
-    console.log(item.fecha);
-      	evento.save(item, function(response) {
-      	$scope.eventos.push(response);
-      	console.log(response);
-      	});
-    }
-    $scope.evento_modal = function(evento) {
-      console.log(evento);
-      $scope.evento =evento
-    }
-    $scope.evento_modifica = function(evento,id_eventos) {
-      //console.log("modifica");
-    var name = $scope.name;
-    var file = $scope.file;
-    upload.saveImage(file).then(function(res)
-    {})
-    evento.imagen=dir+file.name;
-    $scope.evento.fecha=$filter('date')(new Date(),'yyyy-MM-dd');
-    console.log(evento.imagen);
-      $scope.evento.$update({'id_eventos':$scope.evento.id_eventos}, function(response){});
-    }
+   
+
   }
 ])
 .directive('uploaderModel', ["$parse", function ($parse) {
@@ -374,6 +363,24 @@ $scope.deleterubro = function (rubro,index) {
 	};
 }])
 
+.directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
+}])
 .service('upload', ["$http", "$q", function ($http, $q) 
 {
 	this.saveImage = function(file, name)
