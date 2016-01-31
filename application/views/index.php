@@ -42,6 +42,7 @@
     <script src="./public/controllers/main.js"></script>
     <script src="./public/controllers/inicio/inicio.js"></script>
     <script src="./public/controllers/inicio/inicio-empresa.js"></script>
+    <script src="./public/controllers/inicio/inicio-sucursal.js"></script>
 
     <!-- servicio -->
     <script src="./public/services/parametro.js"></script>

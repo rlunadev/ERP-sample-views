@@ -17,5 +17,10 @@ angular.module('seedApp')
       templateUrl: path + '/inicio/paginas/empresa.html',
       controller: 'InicioEmpresaController'
     });
+    $stateProvider.state('main.inicio.sucursal', {
+      url: '/sucursal',
+      templateUrl: path + '/inicio/paginas/sucursal.html',
+      controller: 'InicioSucursalController'
+    });
   }
 ]);
