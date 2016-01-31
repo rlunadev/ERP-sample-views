@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="./public/bower_components/bootstrap/css/carousel.css" type="text/css">
     <link rel="stylesheet" href="./public/bower_components/bootstrap/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="./public/bower_components/bootstrap/css/skin-blue.min.css" type="text/css">
-    
+
     <!-- Construction JS File -->
     <!-- <script>window.jQuery || document.write('<script src="./public/bower_components/bootstrap/js/jquery-2.1.1.min.js"><\/script>')</script> -->
-    <script src="./public/bower_components/bootstrap/js/jquery-2.1.1.min.js"></script>    
-    <script src="./public/bower_components/bootstrap/js/app.min.js"></script>    
+    <script src="./public/bower_components/bootstrap/js/jquery-2.1.1.min.js"></script>
+    <script src="./public/bower_components/bootstrap/js/app.min.js"></script>
     <script src="./public/bower_components/bootstrap/js/bootstrap.min.js"></script>
     <script src="./public/bower_components/bootstrap/js/holder.min.js"></script>
-    
+
     <!-- <script src="./public/bower_components/bower-angular-sanitize-master/angular-sanitize.js"></script> -->
     <script src="./public/bower_components/angular/angular.js"></script>
     <script src="./public/bower_components/angular-animate/angular-animate.js"></script>
@@ -33,10 +33,16 @@
     <script src="./public/bower_components/angular-route/angular-route.js"></script>
     <script src="./public/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="./public/app.js"></script>
+
     <!-- rutas -->
     <script src="./public/routes/home.js"></script>
+    <script src="./public/routes/inicio.js"></script>
+
     <!-- controladores -->
     <script src="./public/controllers/main.js"></script>
+    <script src="./public/controllers/inicio/inicio.js"></script>
+    <script src="./public/controllers/inicio/inicio-empresa.js"></script>
+
     <!-- servicio -->
     <script src="./public/services/parametro.js"></script>
     <script src="./public/services/actividadEconomica.js"></script>
@@ -67,7 +73,7 @@
 
         <div ng-app="seedApp">
           <div ui-view>
-                
+
           </div>
         </div>
         <footer>

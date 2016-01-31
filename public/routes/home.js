@@ -10,11 +10,6 @@ angular.module('seedApp')
       templateUrl: path + '/index.html',
       controller: 'MainController'
     });
-    $stateProvider.state('main.inicio', {
-      url: 'inicio',
-      templateUrl: path + '/inicio/index.html',
-      controller: 'MainController'
-    });
     $stateProvider.state('main.inventario', {
       url: 'inventario',
       templateUrl: path + '/inventario/index.html',
@@ -53,12 +48,6 @@ angular.module('seedApp')
     $stateProvider.state('main.admin', {
       url: 'admin',
       templateUrl: path + '/admin/index.html',
-      controller: 'MainController'
-    });
-    //INICIO SUBMENUS
-    $stateProvider.state('main.inicio.empresa', {
-      url: '/empresa',
-      templateUrl: path + '/inicio/paginas/empresa.html',
       controller: 'MainController'
     });
     $stateProvider.state('main.inicio.sucursal', {
@@ -226,7 +215,7 @@ angular.module('seedApp')
       templateUrl: path + '/recursos/paginas/descuentos.html',
       controller: 'MainController'
     });
-    
+
     //fin RECURSOS Submenu
     //Inicio VENTAS Submenu
     $stateProvider.state('main.ventas.clientes', {

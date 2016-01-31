@@ -5,38 +5,8 @@ var app=angular.module('seedApp')
 
   function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo,upload) {
 	var dir="./public/img/";
-  //PARAMETRO
-    $scope.parametros = [];
-    parametro.get({}, function(response) {
-    $scope.parametros = response;
-    });
-    $scope.parametros = {};
 
-    // Modifica  Parametro
-  $scope.parametro_modifica = function(parametro,id_parametro) {
-    $scope.parametro=parametro;
-    $scope.parametro.fecha_vencimiento=$filter('date')(parametro.fecha_vencimiento,'yyyy-MM-dd');
-    $scope.parametro.logotipo=parametro.logotipo;
-    $scope.parametro.$update({'id_parametro':$scope.parametro.id_parametro}, function(response){});
-    console.log($scope.parametro.fecha_vencimiento);
-  }
-  //ACTIVIDAD ECONOMICA
-    $scope.actividadEconomicas = [];
-    actividadEconomica.get({}, function(response) {
-    $scope.actividadEconomicas = response;
-    });
-    $scope.actividadEconomicas = {};
 
-  $scope.saveactividadEconomica = function(item) {    
-    actividadEconomica.save(item, function(response) {
-    $scope.actividadEconomicas.push(response);
-    });
-  }
-  $scope.deleteactividadEconomica = function (actividadEconomica,index) {
-    actividadEconomica.$delete({"id_actividadEconomica": actividadEconomica.id_actividadEconomica}, function (success) {
-    $scope.actividadEconomicas.splice($scope.actividadEconomicas.indexOf(actividadEconomica),1);
-    });
-  }
 //Sucursal
     $scope.sucursals = [];
     sucursal.get({}, function(response) {
@@ -108,7 +78,7 @@ var app=angular.module('seedApp')
     catch(e) {
       console.log("ERROR");
       $scope.usuario.$update({'id_usuario':$scope.usuario.id_usuario}, function(response){});
-    } 
+    }
   }
   //Tasa De Cambio
   $scope.tcs = [];
@@ -162,9 +132,9 @@ var app=angular.module('seedApp')
     $scope.ciudads = response;
     });
     $scope.ciudads = {};
-       
 
-    
+
+
     // Disable weekend selection
     $scope.disabled = function(date, mode) {
       return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
@@ -205,7 +175,7 @@ var app=angular.module('seedApp')
     $scope.SubactiveTab = tabToSet1;
     }
     // fin subtabpanel
-        
+
     $scope.getById = function(id) {
         var result = null;
         $scope.comunicados.forEach(function(comunicados) {
@@ -298,7 +268,7 @@ var app=angular.module('seedApp')
     departamento.get({}, function(response) {
     $scope.departamentos = response;
     });
-    $scope.departamentos = {};  
+    $scope.departamentos = {};
 
   $scope.savedepartamento = function(item) {
     departamento.save(item, function(response) {
@@ -324,7 +294,7 @@ var app=angular.module('seedApp')
     cargo.get({}, function(response) {
     $scope.cargos = response;
     });
-    $scope.cargos = {};  
+    $scope.cargos = {};
 
   $scope.savecargo = function(item) {
     cargo.save(item, function(response) {
@@ -346,14 +316,14 @@ var app=angular.module('seedApp')
       $scope.cargo.$update({'id_cargo':$scope.cargo.id_cargo}, function(response){});
     }
 
-   
+
 
   }
 ])
 .directive('uploaderModel', ["$parse", function ($parse) {
 	return {
 		restrict: 'A',
-		link: function (scope, iElement, iAttrs) 
+		link: function (scope, iElement, iAttrs)
 		{
 			iElement.on("change", function(e)
 			{
@@ -381,7 +351,7 @@ var app=angular.module('seedApp')
         }
     }
 }])
-.service('upload', ["$http", "$q", function ($http, $q) 
+.service('upload', ["$http", "$q", function ($http, $q)
 {
 	this.saveImage = function(file, name)
 	{
@@ -404,5 +374,5 @@ var app=angular.module('seedApp')
 			deferred.reject(msg);
 		})
 		return deferred.promise;
-	}	
+	}
 }]);
