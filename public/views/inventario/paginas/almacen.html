@@ -1,4 +1,5 @@
 <div class="container" style="position:absolute">
+
 <h2>ALMACEN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<button class="btn btn-primary">Guardar</button>
 	<button class="btn btn-danger">Cancelar</button>
@@ -61,7 +62,20 @@
           <th>Ciudad</th>
           </thead>
           <tbody>
-
+          <tr ng-repeat ="almacen in almacens">
+            <td>
+              {{almacen.nombre}}
+            </td>
+            <td>
+              {{almacen.id_sucursal}}
+            </td>
+            <td>
+              {{almacen.ubicacion}}
+            </td>
+            <td>
+              {{almacen.observaciones}}
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>

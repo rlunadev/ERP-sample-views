@@ -10,11 +10,7 @@ angular.module('seedApp')
       templateUrl: path + '/index.html',
       controller: 'MainController'
     });
-    $stateProvider.state('main.inventario', {
-      url: 'inventario',
-      templateUrl: path + '/inventario/index.html',
-      controller: 'MainController'
-    });
+  
     $stateProvider.state('main.recursos', {
       url: 'recursos',
       templateUrl: path + '/recursos/index.html',
@@ -77,11 +73,6 @@ angular.module('seedApp')
     });
     //FINAL INICIO SUBMENU
     //inicio Inventario Submenu
-    $stateProvider.state('main.inventario.almacen', {
-      url: '/almacen',
-      templateUrl: path + '/inventario/paginas/almacen.html',
-      controller: 'MainController'
-    });
     $stateProvider.state('main.inventario.tipoProducto', {
       url: '/tipoProducto',
       templateUrl: path + '/inventario/paginas/tipoProducto.html',

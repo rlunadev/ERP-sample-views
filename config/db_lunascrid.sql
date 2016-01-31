@@ -40,6 +40,30 @@ INSERT INTO `tbl_actividadeconomica` VALUES (60,'ffv','0000-00-00');
 UNLOCK TABLES;
 
 #
+# Source for table tbl_almacen
+#
+
+DROP TABLE IF EXISTS `tbl_almacen`;
+CREATE TABLE `tbl_almacen` (
+  `id_almacen` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `id_sucursal` varchar(255) DEFAULT NULL,
+  `ubicacion` varchar(255) DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_almacen`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table tbl_almacen
+#
+
+LOCK TABLES `tbl_almacen` WRITE;
+/*!40000 ALTER TABLE `tbl_almacen` DISABLE KEYS */;
+INSERT INTO `tbl_almacen` VALUES (1,'1','1','1','1');
+/*!40000 ALTER TABLE `tbl_almacen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
 # Source for table tbl_cargo
 #
 
@@ -49,7 +73,7 @@ CREATE TABLE `tbl_cargo` (
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_cargo
@@ -684,7 +708,7 @@ CREATE TABLE `tbl_trabajador` (
   `id_horario` int(11) DEFAULT NULL,
   `id_documentos` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_trabajador`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_trabajador
@@ -712,7 +736,7 @@ CREATE TABLE `tbl_usuarios` (
   `grupo_usuario` varchar(100) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table tbl_usuarios

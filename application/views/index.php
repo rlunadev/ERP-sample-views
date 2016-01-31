@@ -37,6 +37,8 @@
     <!-- rutas -->
     <script src="./public/routes/home.js"></script>
     <script src="./public/routes/inicio.js"></script>
+    <script src="./public/routes/inventario.js"></script>
+    
 
     <!-- controladores -->
     <script src="./public/controllers/main.js"></script>
@@ -44,6 +46,8 @@
     <script src="./public/controllers/inicio/inicio-empresa.js"></script>
     <script src="./public/controllers/inicio/inicio-sucursal.js"></script>
     <script src="./public/controllers/inicio/inicio-usuarios.js"></script>
+    <script src="./public/controllers/inventario/inventario.js"></script>
+    <script src="./public/controllers/inventario/inventario-almacen.js"></script>
 
     <!-- servicio -->
     <script src="./public/services/parametro.js"></script>
@@ -56,6 +60,7 @@
     <script src="./public/services/ingresoProducto.js"></script>
     <script src="./public/services/egresoProducto.js"></script>
     <script src="./public/services/plandecuenta.js"></script>
+    <script src="./public/services/almacen.js"></script>
     <!-- RRHH -->
     <script src="./public/services/trabajador.js"></script>
     <script src="./public/services/departamento.js"></script>
