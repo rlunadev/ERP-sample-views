@@ -50,11 +50,6 @@ angular.module('seedApp')
       templateUrl: path + '/admin/index.html',
       controller: 'MainController'
     });
-    $stateProvider.state('main.inicio.usuarios', {
-      url: '/usuarios',
-      templateUrl: path + '/inicio/paginas/usuarios.html',
-      controller: 'MainController'
-    });
     $stateProvider.state('main.inicio.grupos', {
       url: '/grupos',
       templateUrl: path + '/inicio/paginas/grupos.html',
