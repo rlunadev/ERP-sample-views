@@ -38,7 +38,11 @@
     <script src="./public/routes/home.js"></script>
     <script src="./public/routes/inicio.js"></script>
     <script src="./public/routes/inventario.js"></script>
-    
+    <script src="./public/routes/recursos.js"></script>
+    <script src="./public/routes/contabilidad.js"></script>
+    <script src="./public/routes/activo.js"></script>
+    <script src="./public/routes/ventas.js"></script>
+    <script src="./public/routes/agenda.js"></script>
 
     <!-- controladores -->
     <script src="./public/controllers/main.js"></script>
@@ -46,9 +50,79 @@
     <script src="./public/controllers/inicio/inicio-empresa.js"></script>
     <script src="./public/controllers/inicio/inicio-sucursal.js"></script>
     <script src="./public/controllers/inicio/inicio-usuarios.js"></script>
+    <script src="./public/controllers/inicio/inicio-grupos.js"></script>
+    <script src="./public/controllers/inicio/inicio-parametros.js"></script>
+    <script src="./public/controllers/inicio/inicio-configuracioncontable.js"></script>
+    <script src="./public/controllers/inicio/inicio-bitacora.js"></script>
+    <script src="./public/controllers/inicio/inicio-backup.js"></script>
+    <!-- inventario -->
     <script src="./public/controllers/inventario/inventario.js"></script>
     <script src="./public/controllers/inventario/inventario-almacen.js"></script>
-
+    <script src="./public/controllers/inventario/inventario-combinacion.js"></script>
+    <script src="./public/controllers/inventario/inventario-control.js"></script>
+    <script src="./public/controllers/inventario/inventario-egresoproducto.js"></script>
+    <script src="./public/controllers/inventario/inventario-grupo.js"></script>
+    <script src="./public/controllers/inventario/inventario-ingresoproducto.js"></script>
+    <script src="./public/controllers/inventario/inventario-proveedores.js"></script>
+    <script src="./public/controllers/inventario/inventario-solicitudproducto.js"></script>
+    <script src="./public/controllers/inventario/inventario-tipocombinacion.js"></script>
+    <script src="./public/controllers/inventario/inventario-tipoproducto.js"></script>
+    <script src="./public/controllers/inventario/inventario-tiposervicio.js"></script>
+    <script src="./public/controllers/inventario/inventario-traspasoproducto.js"></script>
+    <!-- RRHH -->
+    <script src="./public/controllers/recursos/recursos.js"></script>
+    <script src="./public/controllers/recursos/recursos-aguinaldo.js"></script>
+    <script src="./public/controllers/recursos/recursos-anticipo.js"></script>
+    <script src="./public/controllers/recursos/recursos-bajamedica.js"></script>
+    <script src="./public/controllers/recursos/recursos-bonos.js"></script>
+    <script src="./public/controllers/recursos/recursos-cargo.js"></script>
+    <script src="./public/controllers/recursos/recursos-departamento.js"></script>
+    <script src="./public/controllers/recursos/recursos-descuentos.js"></script>
+    <script src="./public/controllers/recursos/recursos-faltas.js"></script>
+    <script src="./public/controllers/recursos/recursos-liquidacion.js"></script>
+    <script src="./public/controllers/recursos/recursos-parametros.js"></script>
+    <script src="./public/controllers/recursos/recursos-sueldos.js"></script>
+    <script src="./public/controllers/recursos/recursos-trabajadores.js"></script>
+    <script src="./public/controllers/recursos/recursos-vacaciones.js"></script>
+    <!-- contabilidad -->
+    <script src="./public/controllers/contabilidad/contabilidad.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-egresodinero.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-impuestomensual.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-ingresodinero.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-librocompras.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-librodiario.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-libroventas.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-plandecuenta.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-reportefinanciero.js"></script>
+    <script src="./public/controllers/contabilidad/contabilidad-traspasodinero.js"></script>
+    <!-- Activo -->
+    <script src="./public/controllers/activo/activo.js"></script>
+    <script src="./public/controllers/activo/activo-alta.js"></script>
+    <script src="./public/controllers/activo/activo-baja.js"></script>
+    <script src="./public/controllers/activo/activo-traspaso.js"></script>
+    <script src="./public/controllers/activo/activo-tipo.js"></script>
+    <!-- Ventas -->
+    <script src="./public/controllers/ventas/ventas.js"></script>
+    <script src="./public/controllers/ventas/ventas-centronegocios.js"></script>
+    <script src="./public/controllers/ventas/ventas-clientes.js"></script>
+    <script src="./public/controllers/ventas/ventas-cotizacion.js"></script>
+    <script src="./public/controllers/ventas/ventas-cuentacobrar.js"></script>
+    <script src="./public/controllers/ventas/ventas-cuentapagar.js"></script>
+    <script src="./public/controllers/ventas/ventas-preventa.js"></script>
+    <script src="./public/controllers/ventas/ventas-producto.js"></script>
+    <script src="./public/controllers/ventas/ventas-proyectos.js"></script>
+    <script src="./public/controllers/ventas/ventas-servicios.js"></script>
+    <!-- agenda -->
+    <script src="./public/controllers/agenda/agenda.js"></script>
+    <script src="./public/controllers/agenda/agenda-actas.js"></script>
+    <script src="./public/controllers/agenda/agenda-block.js"></script>
+    <script src="./public/controllers/agenda/agenda-egreso.js"></script>
+    <script src="./public/controllers/agenda/agenda-ingreso.js"></script>
+    <script src="./public/controllers/agenda/agenda-gastos.js"></script>
+    <script src="./public/controllers/agenda/agenda-memorandum.js"></script>
+    <script src="./public/controllers/agenda/agenda-proyecto.js"></script>
+    <script src="./public/controllers/agenda/agenda-trabajo.js"></script>
+    <script src="./public/controllers/agenda/agenda-traspaso.js"></script>
     <!-- servicio -->
     <script src="./public/services/parametro.js"></script>
     <script src="./public/services/actividadEconomica.js"></script>

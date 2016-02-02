@@ -1,35 +1,10 @@
 'use strict';
 var app=angular.module('seedApp')
-.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','tc','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','cargo','upload',
+.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','cargo','upload',
   //lista los productos
 
-  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,tc,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo,upload) {
+  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo,upload) {
 	var dir="./public/img/";
-
-  //Tasa De Cambio
-  $scope.tcs = [];
-  tc.get({}, function(response) {
-  $scope.tcs = response;
-  });
-  $scope.tcs = {};
-
-  $scope.tc_modifica = function(tc,id_tc) {
-    $scope.tc=tc;
-    $scope.tc.$update({'id_tc':$scope.tc.id_tc}, function(response){});
-  }
-
-  $scope.savetc = function(item) {
-    console.log("guarda");
-    console.log(item);
-    tc.save(item, function(response) {
-    $scope.tcs.push(response);
-    });
-  }
-  $scope.deletetc = function (tc,index) {
-    tc.$delete({"id_tc": tc.id_tc}, function (success) {
-    $scope.tc.splice(index, 1);
-    });
-  }
   //RUBRO
   $scope.rubros = [];
   rubro.get({}, function(response) {
@@ -276,6 +251,11 @@ var app=angular.module('seedApp')
             });
         }
     }
+}])
+.filter("sanitize", ['$sce', function($sce) {
+  return function(htmlCode){
+    return $sce.trustAsHtml(htmlCode);
+  }
 }])
 .service('upload', ["$http", "$q", function ($http, $q)
 {
