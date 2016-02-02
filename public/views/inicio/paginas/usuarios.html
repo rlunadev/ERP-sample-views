@@ -3,12 +3,6 @@
 <div ng-model="usuario">
   <form ng-submit="saveusuario(usuario)">
   <button type="submit" class="btn btn-primary">Guardar</button>
-  <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-   {{alert.msg}}
-  </uib-alert> -->
-  <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
-  <!-- <button type="button" class="btn btn-default" data-placement="left"title="Tooltip on left"onmouseenter="$(this).tooltip('show')">
-        </button> -->
   <button class="btn btn-danger">Cancelar</button>
   </h2>
 
@@ -93,15 +87,15 @@
           <th></th>
           </thead>
           <tbody>
-          
-          </tr>
+
           <tr ng-repeat-start = "usuario in usuarios | filter:buscador">
-              <td> {{usuario.id_usuario}} </td>
+              <td> {{$index+1}} </td>
               <td ng-repeat="trabajador in trabajadors" ng-if="trabajador.id_trabajador == usuario.id_nombre"> 
               {{trabajador.nombres}} </td>
               <!-- <td> {{usuario.id_nombre}}</td> -->
               <td> {{usuario.login}} </td>
-              <td> {{usuario.id_sucursal}} </td>
+              <td ng-repeat="sucursal in sucursals" ng-if="sucursal.id_sucursal == usuario.id_sucursal"> 
+              {{sucursal.nombre_comercial}} </td>
               <td> {{usuario.grupo_usuario}} </td>
               <td> {{usuario.fecha_creacion}} </td>
               <td ng-click="usuario_modal(usuario)" data-toggle="modal" data-target=" #myModal">
@@ -113,6 +107,14 @@
           <tr ng-repeat-end></tr>
           </tbody>
         </table>
+      <!-- imprime html -->
+     <!--  
+     <div ng-repeat="trabajador in trabajadors">
+        <div ng-bind-html="trabajador.foto | sanitize">
+        </div>
+     </div> 
+      -->
+      <!-- fin imprime html -->
       </div>
       <br />
       </div>
