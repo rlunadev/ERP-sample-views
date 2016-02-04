@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.falta = {};
+    // $scope.faltas = [];
+    // falta.get({}, function(response) {
+    // $scope.faltas = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.savefalta = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      falta.save(item, function(response) {
+        $scope.faltas.push(response);
+        $scope.falta = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deletefalta = function(falta, index) {
+      falta.$delete({
+          "id_falta": falta.id_falta
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.faltas.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.falta_modal = function(falta) {
+      $scope.falta = falta;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.falta_modifica = function(falta,id_falta) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        falta.logotipo = dir + file.name;
+        $scope.falta.$update({
+          'id_falta': $scope.falta.id_falta},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.falta.$update({
+            'id_falta': $scope.falta.id_falta
           }, function(response) {});
       }
     }

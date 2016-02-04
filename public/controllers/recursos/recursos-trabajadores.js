@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.trabajador = {};
+    // $scope.trabajadors = [];
+    // trabajador.get({}, function(response) {
+    // $scope.trabajadors = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.savetrabajador = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      trabajador.save(item, function(response) {
+        $scope.trabajadors.push(response);
+        $scope.trabajador = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deletetrabajador = function(trabajador, index) {
+      trabajador.$delete({
+          "id_trabajador": trabajador.id_trabajador
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.trabajadors.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.trabajador_modal = function(trabajador) {
+      $scope.trabajador = trabajador;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.trabajador_modifica = function(trabajador,id_trabajador) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        trabajador.logotipo = dir + file.name;
+        $scope.trabajador.$update({
+          'id_trabajador': $scope.trabajador.id_trabajador},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.trabajador.$update({
+            'id_trabajador': $scope.trabajador.id_trabajador
           }, function(response) {});
       }
     }

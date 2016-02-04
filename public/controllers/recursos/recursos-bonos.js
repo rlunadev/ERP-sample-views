@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.bono = {};
+    // $scope.bonos = [];
+    // bono.get({}, function(response) {
+    // $scope.bonos = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.savebono = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      bono.save(item, function(response) {
+        $scope.bonos.push(response);
+        $scope.bono = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deletebono = function(bono, index) {
+      bono.$delete({
+          "id_bono": bono.id_bono
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.bonos.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.bono_modal = function(bono) {
+      $scope.bono = bono;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.bono_modifica = function(bono,id_bono) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        bono.logotipo = dir + file.name;
+        $scope.bono.$update({
+          'id_bono': $scope.bono.id_bono},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.bono.$update({
+            'id_bono': $scope.bono.id_bono
           }, function(response) {});
       }
     }

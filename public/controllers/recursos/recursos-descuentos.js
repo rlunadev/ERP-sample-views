@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.descuento = {};
+    // $scope.descuentos = [];
+    // descuento.get({}, function(response) {
+    // $scope.descuentos = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.savedescuento = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      descuento.save(item, function(response) {
+        $scope.descuentos.push(response);
+        $scope.descuento = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deletedescuento = function(descuento, index) {
+      descuento.$delete({
+          "id_descuento": descuento.id_descuento
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.descuentos.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.descuento_modal = function(descuento) {
+      $scope.descuento = descuento;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.descuento_modifica = function(descuento,id_descuento) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        descuento.logotipo = dir + file.name;
+        $scope.descuento.$update({
+          'id_descuento': $scope.descuento.id_descuento},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.descuento.$update({
+            'id_descuento': $scope.descuento.id_descuento
           }, function(response) {});
       }
     }

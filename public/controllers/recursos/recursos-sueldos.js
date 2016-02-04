@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.sueldo = {};
+    // $scope.sueldos = [];
+    // sueldo.get({}, function(response) {
+    // $scope.sueldos = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.savesueldo = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      sueldo.save(item, function(response) {
+        $scope.sueldos.push(response);
+        $scope.sueldo = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deletesueldo = function(sueldo, index) {
+      sueldo.$delete({
+          "id_sueldo": sueldo.id_sueldo
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.sueldos.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.sueldo_modal = function(sueldo) {
+      $scope.sueldo = sueldo;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.sueldo_modifica = function(sueldo,id_sueldo) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        sueldo.logotipo = dir + file.name;
+        $scope.sueldo.$update({
+          'id_sueldo': $scope.sueldo.id_sueldo},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.sueldo.$update({
+            'id_sueldo': $scope.sueldo.id_sueldo
           }, function(response) {});
       }
     }

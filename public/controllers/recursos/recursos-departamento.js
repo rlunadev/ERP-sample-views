@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.departamento = {};
+    // $scope.departamentos = [];
+    // departamento.get({}, function(response) {
+    // $scope.departamentos = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.savedepartamento = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      departamento.save(item, function(response) {
+        $scope.departamentos.push(response);
+        $scope.departamento = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deletedepartamento = function(departamento, index) {
+      departamento.$delete({
+          "id_departamento": departamento.id_departamento
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.departamentos.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.departamento_modal = function(departamento) {
+      $scope.departamento = departamento;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.departamento_modifica = function(departamento,id_departamento) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        departamento.logotipo = dir + file.name;
+        $scope.departamento.$update({
+          'id_departamento': $scope.departamento.id_departamento},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.departamento.$update({
+            'id_departamento': $scope.departamento.id_departamento
           }, function(response) {});
       }
     }

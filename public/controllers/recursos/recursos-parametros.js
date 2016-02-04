@@ -5,10 +5,10 @@ angular.module('seedApp')
 
   function($scope, upload, $filter) {
     var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
+    // $scope.parametros_rrhh = {};
+    // $scope.parametros_rrhhs = [];
+    // parametros_rrhh.get({}, function(response) {
+    // $scope.parametros_rrhhs = response;
     //});
     //tabpanel
     $scope.activeTab = 1;
@@ -20,43 +20,43 @@ angular.module('seedApp')
     $scope.setSubActiveTab = function(tabToSet1) {
     $scope.SubactiveTab = tabToSet1;
     }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
+        $scope.saveparametros_rrhh = function(item) {
       var name = $scope.name;
       var file = $scope.file;
       upload.saveImage(file).then(function(res) {});
       item.logotipo = dir + file.name;
       item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
+      parametros_rrhh.save(item, function(response) {
+        $scope.parametros_rrhhs.push(response);
+        $scope.parametros_rrhh = {};
       });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
+    $scope.deleteparametros_rrhh = function(parametros_rrhh, index) {
+      parametros_rrhh.$delete({
+          "id_parametros_rrhh": parametros_rrhh.id_parametros_rrhh
         }, function(success) {
-          $scope.almacens.splice(index, 1);
+          $scope.parametros_rrhhs.splice(index, 1);
         });
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
+    $scope.parametros_rrhh_modal = function(parametros_rrhh) {
+      $scope.parametros_rrhh = parametros_rrhh;
     }
 
-    $scope.almacen_modifica = function(almacen,id_almacen) {
+    $scope.parametros_rrhh_modifica = function(parametros_rrhh,id_parametros_rrhh) {
       try {
         var name = $scope.name;
         var file = $scope.file;
         upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
+        parametros_rrhh.logotipo = dir + file.name;
+        $scope.parametros_rrhh.$update({
+          'id_parametros_rrhh': $scope.parametros_rrhh.id_parametros_rrhh},
           function(response) {});
       } catch(e) {
         console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
+        $scope.parametros_rrhh.$update({
+            'id_parametros_rrhh': $scope.parametros_rrhh.id_parametros_rrhh
           }, function(response) {});
       }
     }
