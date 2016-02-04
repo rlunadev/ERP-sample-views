@@ -2,7 +2,7 @@
 
 class usuario extends CI_Model {
 	  // table name
-  private $tbl_usuario= 'tbl_usuarios';
+  private $tbl_usuario= 'tbl_usuario';
 
   function usuario(){
     //parent::Model();
