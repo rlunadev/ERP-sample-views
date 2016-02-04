@@ -1,9 +1,9 @@
 'use strict';
 var app=angular.module('seedApp')
-.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','cargo','upload',
+.controller('MainController', ['$scope','$filter','parametro','actividadEconomica','sucursal','usuario','rubro','ciudad','plandecuenta','ingresoproducto','trabajador','departamento','upload',
   //lista los productos
 
-  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,cargo,upload) {
+  function($scope,$filter,parametro,actividadEconomica,sucursal,usuario,rubro,ciudad,plandecuenta,ingresoproducto,trabajador,departamento,upload) {
 	var dir="./public/img/";
   //RUBRO
   $scope.rubros = [];
@@ -190,32 +190,7 @@ var app=angular.module('seedApp')
     $scope.departamento_modifica = function(departamento,id_departamento) {
       $scope.departamento.$update({'id_departamento':$scope.departamento.id_departamento}, function(response){});
     }
-  // RRHH cargo
-    $scope.cargos = [];
-    cargo.get({}, function(response) {
-    $scope.cargos = response;
-    });
-    $scope.cargos = {};
-
-  $scope.savecargo = function(item) {
-    cargo.save(item, function(response) {
-    $scope.cargos.push(response);
-    });
-  }
-    //cargo
-    $scope.deletecargo = function (cargo,idx) {
-    cargo.$delete({ "id_cargo": cargo.id_cargo}, function (success) {
-    $scope.cargos.splice(idx, 1);
-    });
-    }
-
-    $scope.cargo_modal = function(cargo) {
-      $scope.cargo =cargo
-    }
-
-    $scope.cargo_modifica = function(cargo,id_cargo) {
-      $scope.cargo.$update({'id_cargo':$scope.cargo.id_cargo}, function(response){});
-    }
+  
 
 
 

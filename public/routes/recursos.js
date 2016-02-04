@@ -78,6 +78,6 @@ angular.module('seedApp')
     });
 
     //fin RECURSOS Submenu
-
+$urlRouterProvider.otherwise('/');
   }
 ]);

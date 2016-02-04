@@ -1,8 +1,8 @@
-<div class="container" style="position:absolute"  ng-repeat="parametro in parametros | limitTo: 1">
-  <div ng-model="parametro">
+<div class="container" style="position:absolute">
+  <div>
     <!-- <form class="form-signin">  -->
     <h2>PARAMETROS R.R.H.H. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button  type="submit" class="btn btn-primary" ng-click="parametro_modifica(parametro,parametro.id_parametro)" >Guardar</button>
+      <button  type="submit" class="btn btn-primary" ng-click="" >Guardar</button>
       <button class="btn btn-danger">Cancelar</button>
     </h2>
     <ul class="nav nav-tabs">
@@ -16,49 +16,43 @@
         <tr>
           <td align="right"><label type="text">Aporte Laboral:</label></td>
           <td align="" ><input type="text" size="10">%</td>
-          <td align=""><input type="text" value="Jubilado"size="10"></td>
+          
           <td align="right"><label type="text">Aporte Patronal:</label></td>
 
           <td align=""><input type="text" size="10">%</td>
-          <td align=""><input type="text" size="10" value="Jubilado"></td
         </tr>
         <tr>
           <td align="right"><label type="text">Seguro de Vejez:</label></td>
           <td align=""><input type="text" size="10">%</td>
-          <td align=""><input type="text" size="10">%</td>
-          <td align="right"></td><td>Seguro Profesional</td>
-          <td align=""><input type="text" size="10">%</td>
+          <td align="right"><label type="text">Seguro Profesional:</label></td>
           <td align=""><input type="text" size="10">%</td>
         </tr>
         <tr>
           <td align="right"><label type="text">Riesgo Común:</label></td>
           <td align=""><input type="text" size="10">%</td>
-          <td align=""><input type="text" size="10">%</td>
-          <td align="right"></td><td>Provivienda</td>
-          <td align=""><input type="text" size="10">%</td>
+          <td align="right"><label type="text">Provivienda:</label></td>
           <td align=""><input type="text" size="10">%</td>
         </tr>
         <tr>
           <td align="right"><label type="text">Comisión AFP:</label></td>
           <td align=""><input type="text" size="10">%</td>
-          <td align=""><input type="text" size="10">%</td>
-          <td align="right"></td><td>Aporte Solidario</td>
-          <td align=""><input type="text" size="10">%</td>
+          <td align="right"><label type="text">Aporte Solidario:</label></td>
           <td align=""><input type="text" size="10">%</td>
         </tr>
         <tr>
           <td align="right"><label type="text">Aporte solidario:</label></td>
-          <td align=""><input type="text" size="10">%</td>
           <td align=""><input type="text" size="10">%</td>
         </tr>
         <tr><td></td></tr>
         <tr>
           <td align="right"><label class="text">Edad Hombre:</label></td>
           <td align=""><input type="text"></td>
-          <td align="right"><label class="text">Edad Mujer:</label></td>
-          <td align=""><input type="text"></td>
           <td align="right"><label class="text">Aporte Patronal P/P:</label></td>
           <td><select><option>Seleccione Cuenta</option></select></td>
+        </tr>
+        <tr>
+          <td align="right"><label class="text">Edad Mujer:</label></td>
+          <td align=""><input type="text"></td>
         </tr>
       </table>
       <div class="row">
@@ -70,9 +64,6 @@
                 <td align="right"><label class="text">Seguro Médico:</label></td>
                 <td align=""><input type="text">%</td>
               </tr>
-            </table>
-          <center>Salario Minimo Nacional</center>
-            <table width="100%">
               <tr>
                 <td align="right"><label class="text">S.M.N.:</label></td>
                 <td align=""><input type="text">Bs.</td>

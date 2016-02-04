@@ -1,6 +1,6 @@
 'use strict';
 angular.module('seedApp')
-.controller('RecursosAguinaldoController', [
+.controller('RecursosPlanillaAguinaldoController', [
   '$scope', 'upload', '$filter',
 
   function($scope, upload, $filter) {

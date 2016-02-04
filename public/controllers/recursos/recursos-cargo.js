@@ -1,64 +1,36 @@
 'use strict';
 angular.module('seedApp')
 .controller('RecursosCargoController', [
-  '$scope', 'upload', '$filter',
+  '$scope', 'upload', '$filter','cargo',
 
-  function($scope, upload, $filter) {
-    var dir = "./public/img/";
-    // $scope.almacen = {};
-    // $scope.almacens = [];
-    // almacen.get({}, function(response) {
-    // $scope.almacens = response;
-    //});
-    //tabpanel
-    $scope.activeTab = 1;
-    $scope.setActiveTab = function(tabToSet) {
-    $scope.activeTab = tabToSet;
-    }// fin tabpanel
-    // subtabpanel
-    $scope.SubactiveTab = 1;
-    $scope.setSubActiveTab = function(tabToSet1) {
-    $scope.SubactiveTab = tabToSet1;
-    }// fin subtabpanel  
-        $scope.savealmacen = function(item) {
-      var name = $scope.name;
-      var file = $scope.file;
-      upload.saveImage(file).then(function(res) {});
-      item.logotipo = dir + file.name;
-      item.fecha_creacion = $filter('date')(new Date(), 'yyyy-MM-dd');
-      almacen.save(item, function(response) {
-        $scope.almacens.push(response);
-        $scope.almacen = {};
-      });
+  function($scope, upload, $filter,cargo) {
+    
+
+   // RRHH cargo
+    $scope.cargos = [];
+    cargo.get({}, function(response) {
+    $scope.cargos = response;
+    });
+    $scope.cargos = {};
+
+  $scope.savecargo = function(item) {
+    cargo.save(item, function(response) {
+    $scope.cargos.push(response);
+    });
+  }
+    //cargo
+    $scope.deletecargo = function (cargo,idx) {
+    cargo.$delete({ "id_cargo": cargo.id_cargo}, function (success) {
+    $scope.cargos.splice(idx, 1);
+    });
     }
 
-    $scope.deletealmacen = function(almacen, index) {
-      almacen.$delete({
-          "id_almacen": almacen.id_almacen
-        }, function(success) {
-          $scope.almacens.splice(index, 1);
-        });
+    $scope.cargo_modal = function(cargo) {
+      $scope.cargo =cargo
     }
 
-    $scope.almacen_modal = function(almacen) {
-      $scope.almacen = almacen;
-    }
-
-    $scope.almacen_modifica = function(almacen,id_almacen) {
-      try {
-        var name = $scope.name;
-        var file = $scope.file;
-        upload.saveImage(file).then(function(res) {});
-        almacen.logotipo = dir + file.name;
-        $scope.almacen.$update({
-          'id_almacen': $scope.almacen.id_almacen},
-          function(response) {});
-      } catch(e) {
-        console.log("ERROR");
-        $scope.almacen.$update({
-            'id_almacen': $scope.almacen.id_almacen
-          }, function(response) {});
-      }
+    $scope.cargo_modifica = function(cargo,id_cargo) {
+      $scope.cargo.$update({'id_cargo':$scope.cargo.id_cargo}, function(response){});
     }
   }
 ]);
